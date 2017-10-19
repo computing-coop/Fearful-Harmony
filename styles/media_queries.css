@@ -1,0 +1,178 @@
+@media screen and (min-width: 0px) and (max-width: 373px) {
+
+h1 {
+    line-height: 37px;
+    letter-spacing: -1px;
+    font-size: 35px;
+}   
+.indent{
+    margin-left: 90px;
+}  
+.heading{
+    margin-top: 5px;
+    margin-left: 7px;
+}    
+.big-circle {
+	width: 0px;
+	height: 0px; 
+}
+.big-circle2 {
+	width: 0px;
+	height: 0px; 
+}
+.big-circle3 {
+	width: 0px;
+	height: 0px; 
+} 
+.landing-video{
+        width: 100vh;
+}
+.landing-video2{
+        width: 100vh; 
+}  
+.wrapper{
+    height: 100%;
+} 
+h6 {
+    font-weight: 400;
+    font-size: 8px;
+    letter-spacing: 0px;
+    line-height: 10px;
+}
+.circle {
+	width: 10px;
+    margin-top: 0px;
+	height: 10px; 
+}
+.footer h6{
+    margin-left: 15px;
+}    
+.footer{
+    bottom: 20px;
+    width: 285px;
+    left: 7px;
+}    
+}
+@media screen and (min-width: 374px) and (max-width: 412px) {
+
+h1 {
+    line-height: 49px;
+    letter-spacing: -1.2px;
+    font-size: 45px;
+}   
+.indent{
+    margin-left: 117px;
+}  
+.heading{
+    margin-top: 5px;
+    margin-left: 10px;
+}    
+.big-circle {
+	width: 0px;
+	height: 0px; 
+}
+.big-circle2 {
+	width: 0px;
+	height: 0px; 
+}
+.big-circle3 {
+	width: 0px;
+	height: 0px; 
+} 
+.landing-video{
+        width: 100vh;
+}
+.landing-video2{
+        width: 100vh; 
+}  
+.wrapper{
+    height: 100%;
+} 
+h6 {
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0px;
+    line-height: 11px;
+}
+.circle {
+	width: 11px;
+	height: 11px; 
+}
+.footer{
+    bottom: 20px;
+    width: 320px;
+    left: 10px;
+}    
+}
+@media screen and (min-width: 413px) and (max-width: 774px) {
+
+h1 {
+    line-height: 52px;
+    letter-spacing: -1.2px;
+    font-size: 50px;
+}   
+.indent{
+    margin-left: 127px;
+}  
+.heading{
+    margin-top: 5px;
+    margin-left: 12px;
+}    
+.big-circle {
+	width: 0px;
+	height: 0px; 
+}
+.big-circle2 {
+	width: 0px;
+	height: 0px; 
+}
+.big-circle3 {
+	width: 0px;
+	height: 0px; 
+} 
+.landing-video{
+        width: 100vh;
+}
+.landing-video2{
+        width: 100vh; 
+}  
+.wrapper{
+    height: 100%;
+} 
+h6 {
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0px;
+    line-height: 12px;
+}
+ 
+.footer{
+    bottom: 20px;
+    width: 360px;
+    left: 12px;
+}    
+}
+
+@media screen and (min-width: 775px) and (max-width: 1000px) {
+
+h1 {
+    line-height: 85px;
+    letter-spacing: -3px;
+    font-size: 90px;
+}   
+.indent{
+    margin-left: 230px;
+}   
+.big-circle {
+	width: 60px;
+	height: 60px; 
+}
+.big-circle2 {
+	width: 60px;
+	height: 60px; 
+}
+.big-circle3 {
+	width: 60px;
+	height: 60px; 
+}    
+}
