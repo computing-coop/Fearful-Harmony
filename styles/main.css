@@ -201,19 +201,18 @@ p:first-of-type {
     text-indent: 0;
 }
 
-
 @font-face {
     font-family: 'Harmony';
-    src: url('/assets/fonts/Harmony-Bold.woff'); 
-    src: url('/assets/fonts/Harmony-Bold.woff'); 
+    src: url('./assets/fonts/Harmony-Bold.woff'); 
+    src: url('./assets/fonts/Harmony-Bold.woff'); 
     font-style: bold;
     font-weight: 700;
     }
 
 @font-face {
     font-family: 'Harmony';
-    src: url('/assets/fonts/Harmony-Thin.woff'); 
-    src: url('/assets/fonts/Harmony-Thin.woff'); 
+    src: url('./assets/fonts/Harmony-Thin.woff'); 
+    src: url('./assets/fonts/Harmony-Thin.woff'); 
     font-style: normal;
     font-weight: 300;
     }
