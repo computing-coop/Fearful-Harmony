@@ -20,6 +20,103 @@
         $('.big-circle3').css('opacity', '0');
     })
 
+
+
+//    $('#trigger-1').hover(function(){
+//        $('.letterform').css('font-weight', '300');
+//    },function(){
+//        $('.letterform').css('opacity', '600');
+//    })
+
+
+//    $('#trigger-1').hover(function () {
+//        $(this).toggleClass('active');
+//        $('.letter-1').toggleClass('open');
+//    });
+
+    $('#trigger-1').hover(function(){
+        $('.letter-1').css('opacity', '1');
+    },function(){
+        $('.letter-1').css('opacity', '0');
+    })
+    $('#trigger-2').hover(function(){
+        $('.letter-2').css('opacity', '1');
+    },function(){
+        $('.letter-2').css('opacity', '0');
+    })
+    $('#trigger-3').hover(function(){
+        $('.letter-3').css('opacity', '1');
+    },function(){
+        $('.letter-3').css('opacity', '0');
+    })
+    $('#trigger-4').hover(function(){
+        $('.letter-4').css('opacity', '1');
+    },function(){
+        $('.letter-4').css('opacity', '0');
+    })
+    $('#trigger-5').hover(function(){
+        $('.letter-5').css('opacity', '1');
+    },function(){
+        $('.letter-5').css('opacity', '0');
+    })
+    $('#trigger-6').hover(function(){
+        $('.letter-6').css('opacity', '1');
+    },function(){
+        $('.letter-6').css('opacity', '0');
+    })
+    $('#trigger-7').hover(function(){
+        $('.letter-7').css('opacity', '1');
+    },function(){
+        $('.letter-7').css('opacity', '0');
+    })
+    $('#trigger-8').hover(function(){
+        $('.letter-8').css('opacity', '1');
+    },function(){
+        $('.letter-8').css('opacity', '0');
+    })
+    $('#trigger-9').hover(function(){
+        $('.letter-9').css('opacity', '1');
+    },function(){
+        $('.letter-9').css('opacity', '0');
+    })
+    $('#trigger-10').hover(function(){
+        $('.letter-10').css('opacity', '1');
+    },function(){
+        $('.letter-10').css('opacity', '0');
+    })
+    $('#trigger-11').hover(function(){
+        $('.letter-11').css('opacity', '1');
+    },function(){
+        $('.letter-11').css('opacity', '0');
+    })
+    $('#trigger-12').hover(function(){
+        $('.letter-12').css('opacity', '1');
+    },function(){
+        $('.letter-12').css('opacity', '0');
+    })
+
+
+
+
+
+// Carousel 
+$(window).load(function () {
+
+    var hero_carousel = document.querySelector('.carousel');
+    var hero_flkty = new Flickity(hero_carousel, {
+        imagesLoaded: true,
+        autoPlay: 2500,
+        pauseAutoPlayOnHover: false,
+        wrapAround: true,
+        pageDots: true
+    });
+
+});
+
+
+
+
+
         
  //-----Remove Hover for moblie | START -----//
 
