@@ -2,7 +2,26 @@
 
 //hover over images
     
-    
+$(function() {
+	
+	$('main').scrollgress({
+	
+	});
+		
+});
+
+    $('.circle, #open').hover(function(){
+        $('main').toggleClass('open');
+        $('.scrollgress').toggleClass('open');
+        $('html').css('overflow-y', 'hidden');
+    },function(){
+        $('main').toggleClass('open');
+        $('.scrollgress').toggleClass('open');
+        $('html').css('overflow-y', 'visible');
+    })
+
+
+
 
     $('#fearful-harmony').hover(function(){
         $('.big-circle').css('opacity', '1');
@@ -99,23 +118,6 @@
 
 
 
-// Carousel 
-$(window).load(function () {
-
-    var hero_carousel = document.querySelector('.carousel');
-    var hero_flkty = new Flickity(hero_carousel, {
-        imagesLoaded: true,
-        autoPlay: 2500,
-        pauseAutoPlayOnHover: false,
-        wrapAround: true,
-        pageDots: true
-    });
-
-});
-
-
-
-
 
         
  //-----Remove Hover for moblie | START -----//
@@ -145,3 +147,25 @@ if (touch) { // remove all :hover stylesheets
     });
 
  //-----Remove Hover for moblie | END -----//
+
+
+// Carousel 
+$(window).load(function () {
+
+    var carousel = document.querySelector('.carousel');
+    var flkty = new Flickity(carousel, {
+        imagesLoaded: true,
+        pauseAutoPlayOnHover: false,
+        wrapAround: true,
+    });
+    var carousel2 = document.querySelector('.carousel2');
+    var flkty = new Flickity(carousel2, {
+        imagesLoaded: true,
+        pauseAutoPlayOnHover: false,
+        wrapAround: true,
+    });
+
+});
+
+
+ 
