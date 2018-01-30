@@ -23,21 +23,21 @@ $(function() {
 
 
 
-    $('#fearful-harmony').hover(function(){
-        $('.big-circle').css('opacity', '1');
-    },function(){
-        $('.big-circle').css('opacity', '0');
-    })
-    $('#static-haze').hover(function(){
-        $('.big-circle2').css('opacity', '1');
-    },function(){
-        $('.big-circle2').css('opacity', '0');
-    })
-    $('#ok-human').hover(function(){
-        $('.big-circle3').css('opacity', '1');
-    },function(){
-        $('.big-circle3').css('opacity', '0');
-    })
+//    $('#fearful-harmony').hover(function(){
+//        $('.big-circle').css('opacity', '1');
+//    },function(){
+//        $('.big-circle').css('opacity', '0');
+//    })
+//    $('#static-haze').hover(function(){
+//        $('.big-circle2').css('opacity', '1');
+//    },function(){
+//        $('.big-circle2').css('opacity', '0');
+//    })
+//    $('#ok-human').hover(function(){
+//        $('.big-circle3').css('opacity', '1');
+//    },function(){
+//        $('.big-circle3').css('opacity', '0');
+//    })
 
 
 

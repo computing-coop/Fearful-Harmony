@@ -34,7 +34,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.js"></script>
 
     </head>
+    
     <body>
+        
     <header>
     </header>
 
@@ -42,21 +44,20 @@
   <main> 
     
     <div class="wrapper">
-         
-
         
-<div class="heading">
-    <h1>
-    <a id="fearful-harmony" href=""><span>F</span>earful <span>Ha</span>rmony</a>
-        <div class="big-circle"></div><br>
-    <a id="static-haze" href="">Static <span>H</span>aze</a>
-        <div class="big-circle2"></div><br>
-    <indent class="indent-big"><a id="ok-human" href=""><span>OK</span> Human</a></indent>
-        <div class="big-circle3"></div>
-    </h1>
-</div>
+    <div class="heading">
+        <h1>
+        <a id="fearful-harmony">Fearful Harmony</a>
+            <div class="big-circle"></div><br>
+        <a id="static-haze">Static Haze</a>
+            <div class="big-circle2"></div><br>
+        <span class="indent"><a id="ok-human">OK Human</a>
+            <div class="big-circle3"></div></span>
+        </h1>
+      </div>
     
-            <script id="shader" type="shader-code">
+<div class="background">
+    <script id="shader" type="shader-code">
 
         precision mediump float;
             uniform vec2      mouse;
@@ -81,7 +82,7 @@
             for (int i = 0; i < 4; i++) {
                 total += noise(n) * amplitude;
                 n += n;
-                amplitude *= 0.7;
+                amplitude *= 0.5;
             }
             return total;
         }
@@ -96,37 +97,43 @@ void main() {
     const vec3 c6 = vec3(0.9);
 
     //This is how "packed" the smoke is in our area.
-    vec2 p = gl_FragCoord.xy * 0.75 / resolution.xx;
+    vec2 p = gl_FragCoord.xy * 0.4 / resolution.xx;
     
     float q = fbm(p - (time + 1.0));
     
-    vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.15)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.01)));
+    vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.15)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.15)));
     
     vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
     
-    gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
+    gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), 1.0);
     
     gl_FragColor.xyz *= 0.5;
 }
 
 </script>
-       
+        
     <script src="js/background.js"></script> 
-      
-<div class="homepage-footer">
-    <div class="h6-circle"></div>
-    <h6>
-        Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.
-              <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> & <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved  </h6></div>      
-      
-      </div>  
+
+</div>
+    
+    
+<div class="footer">
+    <div class="circle"></div>
+    <h6>Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.</h6></div>            
+    </div>  
       
   </main>     
 
     <script type="text/javascript" src="js/index.js"></script> 
     
     <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-97464134-1', 'auto');
+    ga('send', 'pageview');
     </script>    
         
 </body>

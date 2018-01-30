@@ -472,10 +472,8 @@ canvas{
     opacity: .9;
 */
 
-/*
-      -webkit-filter: blur(18px);
-  filter: blur(18px);
-*/
+/*      -webkit-filter: blur(18px);*/
+/*  filter: blur(18px);*/
     width: 150%;
     height: 150%;
 /*    transform: scale(1);*/
@@ -537,6 +535,7 @@ canvas{
     opacity: 1;
 }
 
+/*
 .big-circle3 {
 	border-radius: 50%;
 	width: 75px;
@@ -546,6 +545,7 @@ canvas{
 	background: #fff;
     opacity: 0;
 }
+*/
 .big-circle.open {
     opacity: 1;
 }
@@ -596,7 +596,7 @@ canvas{
     opacity: 0;
 }
 
-#ok-human:hover + .big-circle3{
+.indent-big:hover + .big-circle3{
     opacity: 1;
     -webkit-animation: blinking 1.6s;
     animation: blinking 1.6s;
