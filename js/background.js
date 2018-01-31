@@ -52,8 +52,9 @@ var height = window.innerHeight;
 
 var renderer = new PIXI.autoDetectRenderer(250, 150, 
                                    
-{transparent : false},                                       
-                                          );
+{transparent : false,
+legacy: true,
+});
 //var renderer = PIXI.autoDetectRenderer(size[0], size[1]);
 
 document.body.appendChild(renderer.view);
