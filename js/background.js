@@ -54,6 +54,8 @@ var renderer = new PIXI.autoDetectRenderer(250, 150,
                                    
 {transparent : false,
 legacy: true,
+ resolution: 2,
+ roundPixels: true,
 });
 //var renderer = PIXI.autoDetectRenderer(size[0], size[1]);
 
@@ -61,7 +63,7 @@ PIXI.settings.RESOLUTION = window.devicePixelRatio;
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
 
-PIXI.settings.FILTER_RESOLUTION = 3;
+PIXI.settings.FILTER_RESOLUTION = 2;
 
 document.body.appendChild(renderer.view);
 
