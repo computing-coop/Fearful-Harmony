@@ -57,6 +57,8 @@ legacy: true,
 });
 //var renderer = PIXI.autoDetectRenderer(size[0], size[1]);
 
+PIXI.settings.RESOLUTION = window.devicePixelRatio;
+
 document.body.appendChild(renderer.view);
 
 var stage = new PIXI.Container();
