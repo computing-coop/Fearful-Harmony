@@ -1,5 +1,7 @@
 @media screen and (min-width: 0px) and (max-width: 373px) {
-
+.homepage-footer{
+    width: 90%;
+}
 h1 {
     line-height: 37px;
     letter-spacing: -1px;
@@ -102,10 +104,15 @@ h6 {
     bottom: 20px;
     width: 320px;
     left: 10px;
-}    
+}
+.homepage-footer{
+    width: 90%;
+}
 }
 @media screen and (min-width: 413px) and (max-width: 774px) {
-
+.homepage-footer{
+    width: 80%;
+}
 h1 {
     line-height: 52px;
     letter-spacing: -1.2px;
