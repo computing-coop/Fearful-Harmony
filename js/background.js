@@ -54,12 +54,13 @@ var renderer = new PIXI.autoDetectRenderer(250, 150,
                                    
 {transparent : false,
 legacy: true,
- resolution: 2,
+ resolution: 4,
  roundPixels: true,
+ antialias: true,
 });
 //var renderer = PIXI.autoDetectRenderer(size[0], size[1]);
 
-PIXI.settings.RESOLUTION = window.devicePixelRatio;
+//PIXI.settings.RESOLUTION = window.devicePixelRatio;
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
 

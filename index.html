@@ -96,7 +96,7 @@ void main() {
     const vec3 c6 = vec3(0.9);
 
     //This is how "packed" the smoke is in our area.
-    vec2 p = gl_FragCoord.xy * 0.5 / resolution.xx;
+    vec2 p = gl_FragCoord.xy * 0.15 / resolution.xx;
     
     float q = fbm(p - (time + 0.7));
     
