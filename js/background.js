@@ -62,6 +62,8 @@ legacy: true,
 
 //PIXI.settings.RESOLUTION = window.devicePixelRatio;
 
+PIXI.settings.RESOLUTION = window.devicePixelRatio;
+
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
 
 PIXI.settings.FILTER_RESOLUTION = 4;
