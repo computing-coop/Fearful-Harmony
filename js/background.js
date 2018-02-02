@@ -110,6 +110,11 @@ function animate() {
   renderer.render(stage);
 }
 
+var x= width/2;
+var y= height/2;
+
+console.log(y);
+
 document.onmousemove = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
 
