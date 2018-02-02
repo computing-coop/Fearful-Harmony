@@ -92,8 +92,8 @@ smokeShader.uniforms.speed[0] = 0.0;
 smokeShader.uniforms.speed[1] = 0.0;
 
 var bg = PIXI.Sprite.fromImage('');
-bg.width = 250;
-bg.height = 150;
+bg.width = width;
+bg.height = height;
 bg.filters = [smokeShader]
 stage.addChild(bg);
 
@@ -113,7 +113,7 @@ function animate() {
 var x= width/2;
 var y= height/2;
 
-console.log(y);
+console.log(width);
 
 document.onmousemove = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
