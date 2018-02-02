@@ -92,8 +92,8 @@ smokeShader.uniforms.speed[0] = 0.0;
 smokeShader.uniforms.speed[1] = 0.0;
 
 var bg = PIXI.Sprite.fromImage('');
-bg.width = width;
-bg.height = height;
+bg.width = width*10;
+bg.height = height*10;
 bg.filters = [smokeShader]
 stage.addChild(bg);
 
