@@ -56,15 +56,28 @@ var renderer = new PIXI.autoDetectRenderer(250, 150,
 legacy: true,
  resolution: 4,
  roundPixels: true,
-// antialias: true,
 });
+
+//var renderer = new PIXI.CanvasRenderer(250, 150, 
+//                                   
+//{
+//view: document.querySelector('canvas'),
+//transparent : false,
+//legacy: true,
+// resolution: 4,
+// roundPixels: true,
+//});
+
+
+
 //var renderer = PIXI.autoDetectRenderer(size[0], size[1]);
 
 PIXI.settings.RESOLUTION = window.devicePixelRatio;
-
-PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
-
+PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 PIXI.settings.FILTER_RESOLUTION = 4;
+PIXI.settings.SPRITE_BATCH_SIZE = 8200;
+PIXI.settings.SPRITE_MAX_TEXTURES = 64;
 
 document.body.appendChild(renderer.view);
 
@@ -91,7 +104,9 @@ smokeShader.uniforms.shift = 0.0;
 smokeShader.uniforms.speed[0] = 0.0;
 smokeShader.uniforms.speed[1] = 0.0;
 
-var bg = PIXI.Sprite.fromImage('');
+var texture = PIXI.Texture.fromImage('');
+var bg = new PIXI.Sprite(texture);
+//var bg = PIXI.Texture.fromImage('');
 bg.width = width*10;
 bg.height = height*10;
 bg.filters = [smokeShader]
@@ -110,8 +125,8 @@ function animate() {
   renderer.render(stage);
 }
 
-var x= width/2;
-var y= height/2;
+//var x= width/2;
+//var y= height/2;
 
 console.log(width);
 
