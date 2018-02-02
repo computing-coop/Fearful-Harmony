@@ -106,7 +106,7 @@ smokeShader.uniforms.speed[1] = 0.0;
 
 var texture = PIXI.Texture.fromImage('');
 var bg = new PIXI.Sprite(texture);
-//var bg = PIXI.Texture.fromImage('');
+//var bg = PIXI.Sprite.fromImage('');
 bg.width = width*10;
 bg.height = height*10;
 bg.filters = [smokeShader]
