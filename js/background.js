@@ -52,10 +52,13 @@ var height = window.innerHeight;
 
 var renderer = new PIXI.autoDetectRenderer(250, 150, 
                                    
-{transparent : false,
-legacy: true,
- resolution: 4,
- roundPixels: true,
+{
+    forceCanvas: true,
+    view: document.getElementById('background'),
+    transparent : false,
+    legacy: true,
+    resolution: 4,
+    roundPixels: true,
 });
 
 //var renderer = new PIXI.CanvasRenderer(250, 150, 
@@ -68,6 +71,7 @@ legacy: true,
 // roundPixels: true,
 //});
 
+document.body.appendChild(renderer.view);
 
 
 //var renderer = PIXI.autoDetectRenderer(size[0], size[1]);
@@ -79,7 +83,6 @@ PIXI.settings.FILTER_RESOLUTION = 4;
 PIXI.settings.SPRITE_BATCH_SIZE = 8200;
 PIXI.settings.SPRITE_MAX_TEXTURES = 64;
 
-document.body.appendChild(renderer.view);
 
 var stage = new PIXI.Container();
 

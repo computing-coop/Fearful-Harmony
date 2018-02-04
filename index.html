@@ -107,13 +107,12 @@ void main() {
     vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
 			gl_FragColor = texture2D(uSampler, vTextureCoord);    
     gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
-    
-    gl_FragColor.xyz *= 0.5;
+    //gl_FragColor.xyz *= 0.5;
 }
 
 </script>
        
-    <script src="js/background.js"></script> 
+
       
 <div class="homepage-footer">
     <div class="h6-circle"></div>
@@ -127,9 +126,8 @@ void main() {
 
 <!--    <script type="text/javascript" src="js/index.js"></script> -->
     
-    <script>
-
-    </script>    
+    <script src="js/background.js"></script> 
+        <canvas id="background" width="250" height="150"></canvas>
         
 </body>
 </html>
