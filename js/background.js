@@ -51,14 +51,15 @@ PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 var width = window.innerWidth;
 var height = window.innerHeight;
 
-var renderer = new PIXI.autoDetectRenderer(250, 150, 
+//const renderer = new PIXI.CanvasRenderer(250, 150, 
+const renderer = new PIXI.autoDetectRenderer(250, 150, 
                                    
 {
     forceCanvas: true,
     view: document.getElementById('background'),
     transparent : false,
     legacy: true,
-    resolution: 4,
+    resolution: 2,
     roundPixels: true,
 });
 
@@ -80,9 +81,6 @@ document.body.appendChild(renderer.view);
 PIXI.settings.RESOLUTION = window.devicePixelRatio;
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
-PIXI.settings.FILTER_RESOLUTION = 4;
-PIXI.settings.SPRITE_BATCH_SIZE = 8200;
-PIXI.settings.SPRITE_MAX_TEXTURES = 64;
 
 
 var stage = new PIXI.Container();
@@ -107,19 +105,22 @@ var shaderCode = document.getElementById('shader').innerHTML
 var smokeShader = new PIXI.Filter(null,shaderCode);
 
 
-smokeShader.uniforms.resolution[0] = width;
-smokeShader.uniforms.resolution[1] = height;
+//smokeShader.uniforms.resolution[0] = width;
+//smokeShader.uniforms.resolution[1] = height;
+smokeShader.uniforms.resolution[0] = 250;
+smokeShader.uniforms.resolution[1] = 150;
 smokeShader.uniforms.shift = 0.0;
 //smokeShader.uniforms.time = 0.0;
 smokeShader.uniforms.speed[0] = 0.0;
 smokeShader.uniforms.speed[1] = 0.0;
 
-var texture = PIXI.Texture.fromImage('');
+var texture = PIXI.Texture.fromImage('@2');
 var bg = new PIXI.Sprite(texture);
 //var bg = PIXI.Sprite.fromImage('');
-bg.width = width*10;
-bg.height = height*10;
+bg.width = 250;
+bg.height = 150;
 bg.filters = [smokeShader]
+
 stage.addChild(bg);
 
 var count = 0;
@@ -127,12 +128,13 @@ var count = 0;
 animate()
 
 function animate() {
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
-  count += 0.0002
-  smokeShader.uniforms.time = count;
+    count += 0.0002
+    smokeShader.uniforms.time = count;
+    $("canvas").show();    
+    renderer.render(stage);
     
-  renderer.render(stage);
 }
 
 //var x= width/2;
