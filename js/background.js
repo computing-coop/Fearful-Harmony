@@ -87,15 +87,15 @@ PIXI.settings.SPRITE_MAX_TEXTURES = 64;
 
 var stage = new PIXI.Container();
 
-function CustomFilter(fragmentSource) {
-  PIXI.Filter.call(this,
-      null,
-      fragmentSource
-  );
-}
+//function CustomFilter(fragmentSource) {
+//  PIXI.Filter.call(this,
+//      null,
+//      fragmentSource
+//  );
+//}
 
-CustomFilter.prototype = Object.create(PIXI.Filter.prototype);
-CustomFilter.prototype.constructor = CustomFilter;
+//CustomFilter.prototype = Object.create(PIXI.Filter.prototype);
+//CustomFilter.prototype.constructor = CustomFilter;
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
