@@ -96,6 +96,7 @@ var stage = new PIXI.Container();
 
 //CustomFilter.prototype = Object.create(PIXI.Filter.prototype);
 //CustomFilter.prototype.constructor = CustomFilter;
+//random add
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
