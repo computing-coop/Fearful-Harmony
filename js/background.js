@@ -45,7 +45,8 @@
 //        this.maskManager = null;
 //        this.smoothProperty = null;
 //    }
-
+PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 
 var width = window.innerWidth;
 var height = window.innerHeight;
@@ -96,9 +97,14 @@ function CustomFilter(fragmentSource) {
 CustomFilter.prototype = Object.create(PIXI.Filter.prototype);
 CustomFilter.prototype.constructor = CustomFilter;
 
+PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
+
 // smoke shader
 var shaderCode = document.getElementById('shader').innerHTML
-var smokeShader = new CustomFilter(shaderCode);
+//var smokeShader = new CustomFilter(shaderCode);
+var smokeShader = new PIXI.Filter(null,shaderCode);
+
 
 smokeShader.uniforms.resolution[0] = width;
 smokeShader.uniforms.resolution[1] = height;
