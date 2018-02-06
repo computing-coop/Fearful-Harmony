@@ -104,16 +104,14 @@ var shaderCode = document.getElementById('shader').innerHTML
 var smokeShader = new PIXI.Filter(null,shaderCode);
 
 
-//smokeShader.uniforms.resolution[0] = width;
-//smokeShader.uniforms.resolution[1] = height;
-smokeShader.uniforms.resolution[0] = 250;
-smokeShader.uniforms.resolution[1] = 150;
+smokeShader.uniforms.resolution[0] = width;
+smokeShader.uniforms.resolution[1] = height;
 smokeShader.uniforms.shift = 0.0;
 //smokeShader.uniforms.time = 0.0;
 smokeShader.uniforms.speed[0] = 0.0;
 smokeShader.uniforms.speed[1] = 0.0;
 
-var texture = PIXI.Texture.fromImage('@2');
+var texture = PIXI.Texture.fromImage('');
 var bg = new PIXI.Sprite(texture);
 //var bg = PIXI.Sprite.fromImage('');
 bg.width = 250;
