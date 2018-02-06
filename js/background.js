@@ -59,7 +59,7 @@ const renderer = new PIXI.autoDetectRenderer(250, 150,
     view: document.getElementById('background'),
     transparent : false,
     legacy: true,
-    resolution: 2,
+    resolution: window.devicePixelRatio,
     roundPixels: true,
 });
 
