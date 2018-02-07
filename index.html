@@ -85,7 +85,7 @@ void main() {
     vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.1)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.1)));
     
     vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
-			gl_FragColor = texture2D(uSampler, vTextureCoord);    
+    gl_FragColor = texture2D(uSampler, vTextureCoord);    
     gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
     //gl_FragColor.xyz *= 0.5;
 }
@@ -131,7 +131,7 @@ void main() {
 <!--    <script type="text/javascript" src="js/index.js"></script> -->
     
     <script src="js/background.js"></script> 
-        <canvas id="background" width="250" height="150">
+<!--        <canvas id="background">-->
         
 </body>
 </html>

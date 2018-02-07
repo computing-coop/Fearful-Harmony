@@ -50,16 +50,18 @@ PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 
 var width = window.innerWidth;
 var height = window.innerHeight;
+var scale = window.devicePixelRatio;
 
 //const renderer = new PIXI.CanvasRenderer(250, 150, 
-const renderer = new PIXI.autoDetectRenderer(250, 150, 
+const renderer = new PIXI.autoDetectRenderer(250 * scale, 150 * scale, 
                                    
 {
     forceCanvas: true,
     view: document.getElementById('background'),
     transparent : false,
     legacy: true,
-    resolution: window.devicePixelRatio,
+//    resolution: window.devicePixelRatio,
+    resolution: scale,
     roundPixels: true,
 });
 
@@ -103,9 +105,11 @@ var shaderCode = document.getElementById('shader').innerHTML
 //var smokeShader = new CustomFilter(shaderCode);
 var smokeShader = new PIXI.Filter(null,shaderCode);
 
+smokeShader.resolution = window.devicePixelRatio;
 
-smokeShader.uniforms.resolution[0] = width;
-smokeShader.uniforms.resolution[1] = height;
+
+smokeShader.uniforms.resolution[0] = width * scale;
+smokeShader.uniforms.resolution[1] = height * scale;
 smokeShader.uniforms.shift = 0.0;
 //smokeShader.uniforms.time = 0.0;
 smokeShader.uniforms.speed[0] = 0.0;
@@ -114,10 +118,10 @@ smokeShader.uniforms.speed[1] = 0.0;
 var texture = PIXI.Texture.fromImage('');
 var bg = new PIXI.Sprite(texture);
 //var bg = PIXI.Sprite.fromImage('');
-bg.width = 250;
-bg.height = 150;
+bg.width = 250 * scale;
+bg.height = 150 * scale;
 bg.filters = [smokeShader]
-
+//
 stage.addChild(bg);
 
 var count = 0;
