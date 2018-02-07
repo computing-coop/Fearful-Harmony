@@ -45,6 +45,9 @@
 //        this.maskManager = null;
 //        this.smoothProperty = null;
 //    }
+
+//add something
+
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 
