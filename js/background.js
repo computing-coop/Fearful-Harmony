@@ -53,10 +53,12 @@ PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 
 var width = window.innerWidth;
 var height = window.innerHeight;
+//var width = clientWidth;
+//var height = clientHeight;
 var scale = window.devicePixelRatio;
 
 //const renderer = new PIXI.CanvasRenderer(250, 150, 
-const renderer = new PIXI.autoDetectRenderer(250 * scale, 150 * scale, 
+const renderer = new PIXI.autoDetectRenderer(250, 150, 
                                    
 {
     forceCanvas: true,
@@ -118,9 +120,9 @@ smokeShader.uniforms.shift = 0.0;
 smokeShader.uniforms.speed[0] = 0.0;
 smokeShader.uniforms.speed[1] = 0.0;
 
-var texture = PIXI.Texture.fromImage('');
-var bg = new PIXI.Sprite(texture);
-//var bg = PIXI.Sprite.fromImage('');
+//var texture = PIXI.Texture.fromImage('');
+//var bg = new PIXI.Sprite(texture);
+var bg = PIXI.Sprite.fromImage('');
 bg.width = 250 * scale;
 bg.height = 150 * scale;
 bg.filters = [smokeShader]
@@ -151,6 +153,32 @@ document.onmousemove = function(evt){
 
   smokeShader.uniforms.mouse = mousePos;
 
+}
+
+var resize = function () {
+        window.addEventListener('resize', rendererResize);
+        window.addEventListener('deviceOrientation', rendererResize);
+};
+
+//potential fix
+
+var rendererResize = function () {
+    var width = window.innerWidth,
+        height = window.innerHeight,
+        targetScale;
+    
+        canvas.width = width * window.devicePixelRatio;
+    canvas.height = height * window.devicePixelRatio;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    
+        renderer().resize(canvas.width, canvas.height);
+
+         if (height / targetHeight < width / targetWidth) {
+         scene.scale.x = scene.scale.y = height / targetHeight;
+     } else {
+         scene.scale.x = scene.scale.y = width / targetWidth;
+     }
 }
 
 //console.log(smokeShader.uniforms.mouse);
