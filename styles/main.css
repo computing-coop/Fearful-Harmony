@@ -452,6 +452,7 @@ main {
     color: #FFF;
     margin-left: 10px;
     mix-blend-mode: difference;
+    left: 0;
 }
 
 .heading h1{
@@ -465,15 +466,13 @@ main {
 }
 
 canvas{
-    pointer-events: none;
+/*    pointer-events: none;*/
     position: fixed;
 /*
     z-index: 1;
     opacity: .9;
 */
 
-/*      -webkit-filter: blur(18px);*/
-/*  filter: blur(18px);*/
     width: 150%;
     height: 150%;
 /*    transform: scale(1);*/
@@ -675,7 +674,6 @@ canvas{
     left: 50px;
     position: relative;
     clear: both;
-    
 }
 
 .fearful-harmony-intro indent{

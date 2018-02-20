@@ -11,9 +11,7 @@
 
     <!-- Mobile -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">-->
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="" sizes="30x30" />
@@ -37,9 +35,10 @@
     
     <body>
 
-        <script id="shader" type="shader-code">
+    <script id="shader" type="shader-code">
 
         precision highp float;
+        
             uniform vec2      mouse;
             uniform vec2      resolution;
             uniform float     time;
@@ -47,7 +46,6 @@
             uniform float     shift;
             uniform sampler2D 	uSampler;
             varying vec2 	  vTextureCoord;
-
 
         float rand(vec2 n) {
             return fract(cos(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
@@ -69,70 +67,55 @@
             return total;
         }
 
-void main() {
-    //This is where our shader comes together
-    const vec3 c1 = vec3(4.1);
-    const vec3 c2 = vec3(2.0);
-    const vec3 c3 = vec3(1.4);
-    const vec3 c4 = vec3(0.0);
-    const vec3 c5 = vec3(4.5);
-    const vec3 c6 = vec3(0.9);
+        void main() {
+            const vec3 c1 = vec3(4.1);
+            const vec3 c2 = vec3(2.0);
+            const vec3 c3 = vec3(1.4);
+            const vec3 c4 = vec3(0.0);
+            const vec3 c5 = vec3(4.5);
+            const vec3 c6 = vec3(0.9);
 
-    //This is how "packed" the smoke is in our area.
-    vec2 p = gl_FragCoord.xy * 0.15 / resolution.xx;
-    
-    float q = fbm(p - (time + 0.7));
-    
-    vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.1)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.1)));
-    
-    vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
-    gl_FragColor = texture2D(uSampler, vTextureCoord);    
-    gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
-    //gl_FragColor.xyz *= 0.5;
-}
+            vec2 p = gl_FragCoord.xy * 0.2 / resolution.xx;
 
+            float q = fbm(p - (time + 0.7));
 
+            vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.1)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.1)));
 
-</script>
+            vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
+            gl_FragColor = texture2D(uSampler, vTextureCoord);    
+            gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
+            gl_FragColor.xyz *= 0.6;
+        }
         
-    <header>
-    </header>
-
+</script>
                 
   <main> 
     
     <div class="wrapper">
-         
-
         
-<div class="heading">
-    <h1>
-    <a id="fearful-harmony" href=""><span>F</span>earful <span>Ha</span>rmony</a>
-        <div class="big-circle"></div><br>
-    <a id="static-haze" href="">Static <span>H</span>aze</a>
-        <div class="big-circle2"></div><br>
-    <indent class="indent-big"><a id="ok-human" href=""><span>OK</span> Human</a></indent>
-        <div class="big-circle3"></div>
-    </h1>
-</div>
-    
-       
-
+    <div class="heading">
+        <h1>
+        <a id="fearful-harmony" href=""><span>F</span>earful <span>Ha</span>rmony</a>
+            <div class="big-circle"></div><br>
+        <a id="static-haze" href="">Static <span>H</span>aze</a>
+            <div class="big-circle2"></div><br>
+        <indent class="indent-big"><a id="ok-human" href=""><span>OK</span> Human</a></indent>
+            <div class="big-circle3"></div>
+        </h1>
+    </div>
       
-<div class="homepage-footer">
-    <div class="h6-circle"></div>
-    <h6>
+    <div class="homepage-footer">
+        <div class="h6-circle"></div>
+        <h6>
         Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices. <span class=underline>More content coming soon.</span>
               <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> & <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved  </h6></div>      
-      
       </div>  
       
   </main>     
 
 <!--    <script type="text/javascript" src="js/index.js"></script> -->
     
-    <script src="js/background.js"></script> 
-<!--        <canvas id="background">-->
+<script src="js/background.js"></script> 
         
 </body>
 </html>
