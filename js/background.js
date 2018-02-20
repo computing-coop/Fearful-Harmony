@@ -92,23 +92,23 @@ PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 
 var stage = new PIXI.Container();
 
-//function CustomFilter(fragmentSource) {
-//  PIXI.Filter.call(this,
-//      null,
-//      fragmentSource
-//  );
-//}
+function CustomFilter(fragmentSource) {
+  PIXI.Filter.call(this,
+      null,
+      fragmentSource
+  );
+}
 
-//CustomFilter.prototype = Object.create(PIXI.Filter.prototype);
-//CustomFilter.prototype.constructor = CustomFilter;
+CustomFilter.prototype = Object.create(PIXI.Filter.prototype);
+CustomFilter.prototype.constructor = CustomFilter;
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
 
 // smoke shader
 var shaderCode = document.getElementById('shader').innerHTML
-//var smokeShader = new CustomFilter(shaderCode);
-var smokeShader = new PIXI.Filter(null,shaderCode);
+var smokeShader = new CustomFilter(shaderCode);
+//var smokeShader = new PIXI.Filter(null,shaderCode);
 
 smokeShader.resolution = window.devicePixelRatio;
 
@@ -152,7 +152,6 @@ document.onmousemove = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
 
   smokeShader.uniforms.mouse = mousePos;
-
 }
 
 var resize = function () {
@@ -161,25 +160,6 @@ var resize = function () {
 };
 
 //potential fix
-
-var rendererResize = function () {
-    var width = window.innerWidth,
-        height = window.innerHeight,
-        targetScale;
-    
-        canvas.width = width * window.devicePixelRatio;
-    canvas.height = height * window.devicePixelRatio;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    
-        renderer().resize(canvas.width, canvas.height);
-
-         if (height / targetHeight < width / targetWidth) {
-         scene.scale.x = scene.scale.y = height / targetHeight;
-     } else {
-         scene.scale.x = scene.scale.y = width / targetWidth;
-     }
-}
 
 //console.log(smokeShader.uniforms.mouse);
 //
