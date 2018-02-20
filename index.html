@@ -84,7 +84,7 @@
             vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
             gl_FragColor = texture2D(uSampler, vTextureCoord);    
             gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
-            gl_FragColor.xyz *= 0.6;
+            gl_FragColor.xyz *= 0.5;
         }
         
 </script>

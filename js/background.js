@@ -55,16 +55,22 @@ var width = window.innerWidth;
 var height = window.innerHeight;
 var scale = window.devicePixelRatio;
 
-const renderer = new PIXI.autoDetectRenderer(250, 150, 
-                                   
+const renderer = new PIXI.autoDetectRenderer(250, 150,                    
 {
-    forceCanvas: true,
     view: document.getElementById('background'),
     transparent : false,
+    backgroundColor: 0x000000,
     legacy: true,
     resolution: window.devicePixelRatio,
     roundPixels: true,
 });
+
+if (renderer.RENDERER_TYPE = PIXI.RENDERER_TYPE.UNKNOWN) {
+    renderer.backgroundColor = 0xffffff;
+    console.log("web");
+} else {
+var colour = 0x000000;
+};
 
 document.body.appendChild(renderer.view);
 
@@ -117,42 +123,20 @@ animate()
 
 function animate() {
     requestAnimationFrame(animate);
-
     count += 0.0002
     smokeShader.uniforms.time = count;
     renderer.render(stage);
-    
 }
-
-//var x= width/2;
-//var y= height/2;
 
 console.log(width);
 
 document.onmousemove = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
-
   smokeShader.uniforms.mouse = mousePos;
 }
 
-var resize = function () {
-        window.addEventListener('resize', rendererResize);
-        window.addEventListener('deviceOrientation', rendererResize);
-};
-
-//potential fix
-
-//console.log(smokeShader.uniforms.mouse);
-//
-//function resize() {
-//
-//    var w = window.innerWidth;
-//    var h = window.innerHeight;
-//
-//    renderer.view.style.width = w + 'px';
-//    renderer.view.style.height = h + 'px';
-//}
-//
-//window.onresize = resize;
-//
+//var resize = function () {
+//        window.addEventListener('resize', rendererResize);
+//        window.addEventListener('deviceOrientation', rendererResize);
+//};
 

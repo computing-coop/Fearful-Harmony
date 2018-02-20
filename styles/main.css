@@ -466,7 +466,7 @@ main {
 }
 
 canvas{
-/*    pointer-events: none;*/
+    pointer-events: none;
     position: fixed;
 /*
     z-index: 1;
