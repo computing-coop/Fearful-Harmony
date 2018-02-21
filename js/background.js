@@ -128,15 +128,26 @@ function animate() {
     renderer.render(stage);
 }
 
-//document.onmousemove = function(evt){
-//  mousePos = {x:evt.clientX,y:evt.clientY}
-//  smokeShader.uniforms.mouse = mousePos;
-//}
-
-document.ontouchmove = function(evt){
+document.onmousemove = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
   smokeShader.uniforms.mouse = mousePos;
 }
+
+function moveTouch(ev) {
+ // Process the event
+      mousePos = {x:ev.clientX,y:ev.clientY}
+  smokeShader.uniforms.mouse = mousePos;
+}
+
+function init() {
+ var el=document;
+ el.ontouchmove = moveTouch;
+}
+
+//document.ontouchmove = function(evt){
+//  mousePos = {x:evt.clientX,y:evt.clientY}
+//  smokeShader.uniforms.mouse = mousePos;
+//}
 
 //var resize = function () {
 //        window.addEventListener('resize', rendererResize);
