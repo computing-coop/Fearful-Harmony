@@ -130,12 +130,12 @@ function animate() {
 
 console.log(width);
 
-document.onmousemove = function(evt){
-  mousePos = {x:evt.clientX,y:evt.clientY}
-  smokeShader.uniforms.mouse = mousePos;
-}
+//document.onmousemove = function(evt){
+//  mousePos = {x:evt.clientX,y:evt.clientY}
+//  smokeShader.uniforms.mouse = mousePos;
+//}
 
-document.ontouchstart = function(evt){
+document.ontouchmove = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
   smokeShader.uniforms.mouse = mousePos;
 }
