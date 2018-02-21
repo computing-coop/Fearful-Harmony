@@ -135,7 +135,7 @@ document.onmousemove = function(evt){
   smokeShader.uniforms.mouse = mousePos;
 }
 
-document.ontouchmove = function(evt){
+document.ontouchstart = function(evt){
   mousePos = {x:evt.clientX,y:evt.clientY}
   smokeShader.uniforms.mouse = mousePos;
 }
