@@ -135,7 +135,7 @@ document.onmousemove = function(evt){
 
 function moveTouch(ev) {
  // Process the event
-      mousePos = {x:ev.clientX,y:ev.clientY}
+      mousePos = {x:evt.clientX,y:evt.clientY}
   smokeShader.uniforms.mouse = mousePos;
 }
 
