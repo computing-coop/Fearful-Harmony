@@ -128,8 +128,6 @@ function animate() {
     renderer.render(stage);
 }
 
-console.log(width);
-
 //document.onmousemove = function(evt){
 //  mousePos = {x:evt.clientX,y:evt.clientY}
 //  smokeShader.uniforms.mouse = mousePos;
