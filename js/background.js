@@ -135,6 +135,11 @@ document.onmousemove = function(evt){
   smokeShader.uniforms.mouse = mousePos;
 }
 
+document.ontouchmove = function(evt){
+  mousePos = {x:evt.clientX,y:evt.clientY}
+  smokeShader.uniforms.mouse = mousePos;
+}
+
 //var resize = function () {
 //        window.addEventListener('resize', rendererResize);
 //        window.addEventListener('deviceOrientation', rendererResize);
