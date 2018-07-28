@@ -175,6 +175,12 @@ p {
     height: 0%;
 }
 
+.letterform-disclaimer svg{
+    margin-top: -10px;
+}
+.letterform-disclaimer h4 {
+    font-size: 5vw;
+}
 .hero-caption{
     left: 0%;
     width: 90%;
@@ -596,7 +602,13 @@ p {
     position: relative;
     margin-top: 5px;
 }      
-    
+
+.letterform-disclaimer svg{
+    margin-top: -10px;
+}
+.letterform-disclaimer h4 {
+    font-size: 5vw;
+}  
 .static-haze .top-header{
     margin-left: 5px;
     padding-left: 5px;
@@ -1002,8 +1014,12 @@ p {
     margin-top: 0px;
     height: 0%;
 }
-    
- 
+.letterform-disclaimer svg{
+    margin-top: -10px;
+}
+.letterform-disclaimer h4 {
+    font-size: 5vw;
+}
 .hero-caption{
     left: 0%;
     width: 90%;
@@ -1362,7 +1378,7 @@ p {
 }    
     
 .letterform-disclaimer svg{
-    margin-top: -2px;
+    margin-top: -9px;
 }    
     
 .static-haze h3{

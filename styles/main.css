@@ -43,6 +43,10 @@ html.menu{
     overflow-y: hidden;
 }
 
+html.index{
+    overflow-y: hidden;
+}
+
 #landing{
     overflow-y: hidden;
 }
@@ -191,8 +195,8 @@ input, button, submit {
 h1 {
     font-weight: 300;
     font-size: 90px;
-    font-size: 6.15vw;
-    line-height: .85em;
+    font-size: 6.2vw;
+    line-height: .87em;
     letter-spacing: -.04em;
     word-spacing: 0.075em;
 }
@@ -649,6 +653,16 @@ span.tip {
     opacity: 0 !important;
 }
 
+/*
+.wrapper.index {
+    -webkit-transform: translate(0px,calc(100vh + 11px));
+    transform: translate(0px,calc(100vh + 11px));
+    -webkit-transition: .6s cubic-bezier(.55,.02,.11,.99);
+    transition: .6s cubic-bezier(.55,.02,.11,.99);
+    opacity: 1 !important;
+}
+*/
+
 .landing-section{
     width: 100vw;
     height: 100vh;
@@ -676,7 +690,7 @@ span.tip {
     opacity: .95;
     z-index: 200 !important;
     color: #f5f5f5;
-    margin-top: 2px;
+    margin-top: 0px;
     margin-left: 10px;
     mix-blend-mode: difference;
 }
@@ -1429,7 +1443,7 @@ indent:hover + .big-circle3{
     visibility: visible;
     display: block;
 }
-.letterform-disclaimer h2 {
+.letterform-disclaimer h4 {
     cursor: pointer;
     width: 100%;
     opacity: 1;
@@ -1437,7 +1451,7 @@ indent:hover + .big-circle3{
     transition: .2s ease;
 }
 
-.letterform-disclaimer h2:hover {
+.letterform-disclaimer h4:hover {
     opacity: .75;
     -webkit-transition: .3s ease;
     transition: .3s ease;
@@ -1446,12 +1460,17 @@ indent:hover + .big-circle3{
 
 .letterform-disclaimer svg{
     float: right;
-    margin-top: -5px;
-    margin-right: -10px; 
+    margin-top: -10px;
+    margin-right: -15px; 
     width: 10%;
+    display: inline;
 }
-
-
+#hover-arrow3 a{
+    padding-right: 50%;
+}
+#hover-arrow2 a{
+    padding-right: 50%;
+}
 /*small*/
 
 #hover-arrow2:hover svg{
@@ -1720,9 +1739,9 @@ footer article{
 }
 
 .footer-link{
-    
+    cursor: pointer;
     -webkit-transition: .6s ease;
-    transition: ..6s ease;
+    transition: .6s ease;
     opacity: 1;
     
 }
@@ -1731,7 +1750,7 @@ footer article{
     opacity: 0.5;
     
     -webkit-transition: .6s ease;
-    transition: ..6s ease;
+    transition: .6s ease;
 }
 
 .footer-context h6{

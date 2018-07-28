@@ -158,7 +158,7 @@ $(document).mousemove(function(){
 
 (function($) {
   $.fn.onMenuClick = function() {
-  $('.circle').click(function(){
+  $('.circle, .footer-header').click(function(){
     
         $('html').addClass('menu');
         $('.circle').addClass('clicked');
@@ -177,10 +177,12 @@ $(document).mousemove(function(){
   $.fn.onNavClick = function() {
   $('.nav').click(function(){
         $('html').removeClass('menu');
+        $('html').removeClass('index');
         $('.circle').removeClass('clicked');
         $('.nav').removeClass('open');
         $('#background').removeClass('open');
         $('.wrapper').removeClass('open');
+//        $('.wrapper').removeClass('index');
       
     }
 
