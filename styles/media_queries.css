@@ -174,7 +174,14 @@ p {
     margin-top: 0px;
     height: 0%;
 }
-    
+
+.hero-caption{
+    left: 0%;
+    width: 90%;
+    margin-left: 10px;
+    position: relative;
+    margin-top: 5px;
+}      
 .static-haze .top-header{
     margin-left: 5px;
     padding-left: 5px;
@@ -581,7 +588,14 @@ p {
     margin-top: 0px;
     height: 0%;
 }    
-    
+
+.hero-caption{
+    left: 0%;
+    width: 90%;
+    margin-left: 10px;
+    position: relative;
+    margin-top: 5px;
+}      
     
 .static-haze .top-header{
     margin-left: 5px;
@@ -989,7 +1003,14 @@ p {
     height: 0%;
 }
     
-    
+ 
+.hero-caption{
+    left: 0%;
+    width: 90%;
+    margin-left: 10px;
+    position: relative;
+    margin-top: 5px;
+}   
 .static-haze .top-header{
     margin-left: 5px;
     padding-left: 5px; 
@@ -1325,6 +1346,23 @@ p {
 .download{
     width: 45%;
     margin-left: .5%;
+} 
+.letterform{
+    width: 27.5%;
+    height: 350px;
+    margin-bottom: 10px; 
+    
+}  
+.hero-caption{
+    left: 40%;
+    width: 50%;
+    margin-left: 20px;
+    position: relative;
+    margin-top: 5px;
+}    
+    
+.letterform-disclaimer svg{
+    margin-top: -2px;
 }    
     
 .static-haze h3{

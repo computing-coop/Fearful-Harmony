@@ -191,7 +191,7 @@ input, button, submit {
 h1 {
     font-weight: 300;
     font-size: 90px;
-    font-size: 6.25vw;
+    font-size: 6.15vw;
     line-height: .85em;
     letter-spacing: -.04em;
     word-spacing: 0.075em;
@@ -695,6 +695,19 @@ span.tip {
     display: inline-block
 }
 
+.heading a {
+    opacity: .95;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.heading a:hover {
+    opacity: .85;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+    
+}
+
 .circle{
     left: 15px;
     width: 100%;
@@ -998,7 +1011,7 @@ span.tip {
 	border-radius: 50%;
 	width: 55px;
 	height: 55px; 
-    margin-top: 25px;
+    margin-top: 5px;
     margin-left: 300px;
 	background: #fff;
     opacity: 0;
@@ -1232,6 +1245,14 @@ indent:hover + .big-circle3{
     position: relative;
 }
 
+.hero-caption{
+    left: 40%;
+    width: 40%;
+    margin-left: 20px;
+    position: relative;
+    margin-top: 5px;
+}
+
 .interactive-letterform{
     width: 100%;
     position: relative;
@@ -1243,7 +1264,7 @@ indent:hover + .big-circle3{
 .letterform{
     position: relative;
     width: 350px;
-    width: 30%;
+    width: 27.5%;
     height: 350px;
     margin-bottom: 100px;
     left: 50%;
@@ -1408,6 +1429,61 @@ indent:hover + .big-circle3{
     visibility: visible;
     display: block;
 }
+.letterform-disclaimer h2 {
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+    -webkit-transition: .2s ease;
+    transition: .2s ease;
+}
+
+.letterform-disclaimer h2:hover {
+    opacity: .75;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+    
+}
+
+.letterform-disclaimer svg{
+    float: right;
+    margin-top: -5px;
+    margin-right: -10px; 
+    width: 10%;
+}
+
+
+/*small*/
+
+#hover-arrow2:hover svg{
+    transform: translateX(0px);
+    transition: .4s  ease;
+}
+
+#hover-arrow2:hover #arrow-tail{
+    transform: scaleX(0.1);
+    transition: .3s ease;
+}
+
+#hover-arrow2:hover #arrow-tip{
+    transform: translateX(-4em);
+    transition: .3s ease;
+}
+
+#hover-arrow3:hover svg{
+    transform: translateX(0px);
+    transition: .4s  ease;
+}
+
+#hover-arrow3:hover #arrow-tail{
+    transform: scaleX(0.1);
+    transition: .3s ease;
+}
+
+#hover-arrow3:hover #arrow-tip{
+    transform: translateX(-4em);
+    transition: .3s ease;
+}
+
 
 img {
     height: auto;
@@ -1714,7 +1790,6 @@ svg{
     transform: translateX(-.6em);
     transition: .3s ease;
 }
-
 
 
 
