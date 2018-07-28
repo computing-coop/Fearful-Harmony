@@ -31,7 +31,6 @@
     <!-- JS -->
     <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.js"></script>
-    <script type="text/javascript" src="js/jquery.smoothState.js"></script>
 
     </head>
     <body>
@@ -179,10 +178,10 @@
     </div>     
     <div class="visual-language-body">
         <p>
-        Acknowledging the constraints and limitations of the machine was a way for us to further embrace it’s aesthetic and became part of our exploration into the visual style for Fearful Harmony.
+        Acknowledging the constraints and limitations of the machine was a way for us to further embrace its aesthetic and became part of our exploration into the visual style for Fearful Harmony.
         </p>
         <p> 
-        One limitation was choosing a singular typeface, as operating systems communicate with one default typeface specifically programmed for an aesthetic or functional need. We designed a typeface for this project which was a custom hybrid between Helvetica and Arial, an homage to the early system fonts from both Macintosh and Windows. It’s weights were designed so that the lighter it was, the more it resembled Helvetica, while the heavier it was, the more it resembled Arial. We also limited our colour palette, setting everything in grayscale as a means to speculate into the inherent and raw aesthetic of the machine. This raw aesthetic is reinforced through the publication, with the decision to use newsprint as the medium, thus keeping the content inherently noisy through the unpredictability of the printer when dealing with newsprint. Elements such as crop marks, bleed marks and colour bars are all visible throughout the publication, creating a feeling of authenticity that keeps true to the material quality of the machine. The poster, other moving elements and the website also took visual cues from the printed matter, expanding on the noise aesthetic through the affordances of the format, creating a dynamic and unpredictable outcome. 
+        One limitation was choosing a singular typeface, as operating systems communicate with one default typeface specifically programmed for an aesthetic or functional need. We designed a typeface for this project which was a custom hybrid between Helvetica and Arial, an homage to the early system fonts from both Macintosh and Windows. It’s weights were designed so that the lighter it was, the more it resembled Helvetica, while the heavier it was, the more it resembled Arial. We also limited our colour palette, setting everything in grayscale as a means to speculate into the inherent and raw aesthetic of the machine. This raw aesthetic is reinforced through the publication, with the decision to use newsprint as the medium, thus keeping the content inherently noisy through the unpredictability of the printer when dealing with newsprint. Elements such as crop marks, bleed marks and colour bars are all visible throughout the publication, creating a feeling of authenticity that keeps true to the material quality of the machine. The poster, other moving elements and the website also took visual cues from the printed matter, expanding on the noise aesthetic through the affordances of the format, creating a dynamic and unpredictable outcome.
         </p>
     </div>
     <div class="visual-language-body-2">
@@ -199,7 +198,7 @@
   <div class="manifesto">
         <h2>
         <b>Manifesto:</b> We believe at its core, design needs to be visually engaging in order to effectively communicate its message. <span>Y</span>et the designers increasing reliance on machines has shifted into a design focus on functionality, paving the way for a banal <sup></sup>aesthetic.   
-        <indent>We provoke for a realisation that we are increasingly becoming distant from our machines. <span>T</span>o be aware of the aesthetic potential that lies beyond the screen. <span>T</span>o boldly go against the original intent of our machines.</indent></h2>
+        <indent>We provoke for a realisation that we are increasingly becoming distant from our machines. <span>T</span>o be aware of the aesthetic potential that lies beyond the screen. To boldly go against the original intent of our machines.</indent></h2>
   </div>  
     
      <article class="col-12">
@@ -305,7 +304,7 @@
         <h6>
         We designed a typeface for this project which was a custom hybrid between Helvetica and Arial, an homage to the early system fonts from both Macintosh and Windows. It’s weights were designed so that the lighter it was, the more it resembled Helvetica, while the heavier it was, the more it resembled Arial.<br>
 <!--        <div class="small-rule"></div>-->
-            *Helvetica has been slightly edited to make sure the interpolation between the two fonts would function correctly. Small changes such as the tail from the lowercase ‘a’ was removed to ensure their was an equal amount of points as the Arial counterpart.</h6>
+            *Helvetica has been slightly edited to make sure the interpolation between the two fonts would function correctly. Small changes such as the tail from the lowercase ‘a’ was removed to ensure there was an equal amount of points as the Arial counterpart.</h6>
         <div class="small-rule"></div>
         <h4 id="hover-arrow3"><a href="static-haze.html">Static Haze<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1067.03 1067.03"><defs><style>.cls-1{fill:none;}.cls-2{fill:#000000;}</style></defs><title>arrow_3</title><g id="Layer_2" data-name="Layer 2"><g id="arrow-tip"><polygon class="cls-2" points="511.3 578.23 511.3 639.52 198.77 639.52 198.77 734.7 31 608.87 198.77 483.05 198.77 578.23 511.3 578.23"/></g></g></svg></a></h4>
         <div class="small-rule"></div>
@@ -350,6 +349,7 @@
         $(document).ready(function() {
             $('html').animate({scrollTop: 0}, 100);
             $('.circle').addClass('clicked');
+            $('.wrapper').toggleClass('open');
             $('.nav').toggleClass('open');
             $('html').toggleClass('menu');
             $('main').toggleClass('open');
@@ -357,9 +357,10 @@
             $('#background').toggleClass('open');
         }); 
     </script>    
+    
         
+    <script type="text/javascript" src="js/jquery.smoothState.js"></script>
     <script src="js/background.js"></script> 
-<!--    <script type="text/javascript" src="js/ready.js"></script>-->
     <script type="text/javascript" src="js/index.js"></script>
         
 </body>
