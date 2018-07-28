@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
+    
 	<head>
 
     <title>Fearful Harmony</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="content-language" content="en"/>
-    <meta name="description" content="">
-    <meta name="author" content="Luke Hoban & Alfred Hoi">
+    <meta name="description" content="Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.">
+    <meta name="author" content="Alfred Hoi & Luke Hoban">
 
     <!-- Mobile -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="" sizes="30x30" />
-    <link rel="icon" type="image/png" href="" sizes="58x58" />
+    <link rel="icon" type="image/png" href="/assets/favicon30.png" sizes="30x30" />
+    <link rel="icon" type="image/png" href="/assets/favicon58.png" sizes="58x58" />
 
     <!-- Apple -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="" />
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="" />   
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/favicon58.png" />   
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     <link rel="stylesheet" type="text/css" href="styles/media_queries.css"/>   
-    
+        
     <!-- JS -->
     <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.js"></script>
+    <script type="text/javascript" src="js/jquery.smoothState.js"></script>
 
     </head>
-    
     <body>
-
-    <script id="shader" type="shader-code">
+        
+<script id="shader" type="shader-code">
 
         precision highp float;
         
@@ -86,36 +87,275 @@
             gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
             gl_FragColor.xyz *= 0.5;
         }
-        
-</script>
-                
-  <main> 
-    
-    <div class="wrapper">
-        
-    <div class="heading">
-        <h1>
-        <a id="fearful-harmony" href=""><span>F</span>earful <span>Ha</span>rmony</a>
-            <div class="big-circle"></div><br>
-        <a id="static-haze" href="">Static <span>H</span>aze</a>
-            <div class="big-circle2"></div><br>
-        <indent class="indent-big"><a id="ok-human" href=""><span>OK</span> Human</a></indent>
-            <div class="big-circle3"></div>
-        </h1>
-    </div>
-      
-    <div class="homepage-footer">
-        <div class="h6-circle"></div>
-        <h6>
-        Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices. <span class=underline>More content coming soon.</span>
-              <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> & <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved  </h6></div>      
-      </div>  
-      
-  </main>     
 
-    <script type="text/javascript" src="js/index.js"></script> 
+</script>
+
+<div class="loading-screen">
+        <div class="loading-heading">
+            
+            
+                <div class="loading-circle"></div>
+            <h1>
+            </h1>
+        </div>
+</div>        
+        
+        <div class="m-scene" id="main">
+        
+        
+<div class="menu">
+        
+<!--    <div id="menu-open" class="circle scene_element scene_element--fadein"></div>-->
+    <div id="menu-open" class="circle"></div>
     
-<script src="js/background.js"></script> 
+    <div class="menu-background"></div>
+    
+    <div class="nav">
+            
+        <div id="background-container">
+            <canvas id="background"></canvas>
+        </div>     
+
+        <div class="heading">
+            <h1>
+            <span id="fearful-harmony"><span>F</span>earful <span>Ha</span>rmony</span>
+                <div class="big-circle"></div>
+                <br>
+            <a id="static-haze" href="static-haze.html">Static <span>H</span>aze</a>
+                <div class="big-circle2"></div>
+                <br>
+            <indent class="indent-big"><a id="ok-human" href="ok-human.html"><span>OK</span> Human</a></indent>
+            <div class="big-circle3"></div>
+            </h1>
+        </div>
+   
+        <div class="menu-background-grain"></div>
+    
+        <div class="footer">
+            <div class="menu-footer">
+                <div class="h6-circle"></div>
+                <h6>
+                Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.
+                <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> &amp; <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved  </h6>
+            </div> 
+            <div class="menu-close"><h6 id="menu-open" class="underline">Information</h6></div>
+        </div>        
+            
+    </div>
+</div>
+
+        
+<main class="scene_element scene_element--fadein">
+
+<!--<landing-main>-->
+
+    <div class="wrapper">
+  <div class="body-content">
+
+<section id="scroll-landing" class="fearful-section2 precedence">  
+    
+<!--    <div class="rule2"></div>-->
+    <div class="context-title">
+        <p>
+        <b>Context</b><br>
+        </p>
+    </div>     
+    <div class="visual-language-title">
+        <p>
+        <b>Visual Language</b><br> 
+        </p>
+    </div>
+    <div class="visual-language-title-2">
+        <p>
+        <b>Manifesto</b><span class="indent" style="position: absolute;">Experimental Jetset</span>
+        </p>
+    </div>    
+    <div class="rule"></div>
+    <div class="context">
+        <h6>
+        A manifesto exploring the aesthetic of the machine in a contemporary context. Written by Alfred Hoi and Luke Hoban, inspired by Experimental Jetset’s manifesto ‘Disrepresentation Now!’<br><br>
+<!--            <a id="menu-open" class="underline">Close</a>-->
+        </h6>
+    </div>     
+    <div class="visual-language-body">
+        <p>
+        Acknowledging the constraints and limitations of the machine was a way for us to further embrace it’s aesthetic and became part of our exploration into the visual style for Fearful Harmony.
+        </p>
+        <p> 
+        One limitation was choosing a singular typeface, as operating systems communicate with one default typeface specifically programmed for an aesthetic or functional need. We designed a typeface for this project which was a custom hybrid between Helvetica and Arial, an homage to the early system fonts from both Macintosh and Windows. It’s weights were designed so that the lighter it was, the more it resembled Helvetica, while the heavier it was, the more it resembled Arial. We also limited our colour palette, setting everything in grayscale as a means to speculate into the inherent and raw aesthetic of the machine. This raw aesthetic is reinforced through the publication, with the decision to use newsprint as the medium, thus keeping the content inherently noisy through the unpredictability of the printer when dealing with newsprint. Elements such as crop marks, bleed marks and colour bars are all visible throughout the publication, creating a feeling of authenticity that keeps true to the material quality of the machine. The poster, other moving elements and the website also took visual cues from the printed matter, expanding on the noise aesthetic through the affordances of the format, creating a dynamic and unpredictable outcome. 
+        </p>
+    </div>
+    <div class="visual-language-body-2">
+        <p>
+        We started conceptualising ideas and aesthetics without the focus on technology being functional and user friendly. We believed that roles such as UX, though important, often dictated the look of a design outcome, taking away the heart of what design is, which, for us, was to engage through aesthetics. This was something we inferred from the manifesto of ‘Experimental Jetset’ (2010), on their ideas of what the representation of design should be (related text below).</p>
+        <p> “Other representative tendencies in graphic design include the fact that nowadays more and more designers refer to their profession in (immaterial) terms such as ‘visual communication’, ‘information architecture’, etc. These particular notions painfully show the shift in graphic design towards the denial and neglect of its own physical dimensions. We believe that abstraction, a movement away from realism but towards reality,  is the ultimate form of engagement.”<br>
+        <span class="indent">Experimental Jetset</span>
+        </p>
+    </div>       
+    
+    
+    
+              
+  <div class="manifesto">
+        <h2>
+        <b>Manifesto:</b> We believe at its core, design needs to be visually engaging in order to effectively communicate its message. <span>Y</span>et the designers increasing reliance on machines has shifted into a design focus on functionality, paving the way for a banal <sup></sup>aesthetic.   
+<!--
+            <div class="footnote"><h6>
+            <b>Aesthetics</b> (noun) – a set of principles concerned with the nature and appreciation of beauty, esp. in art.</h6>
+            </div>  
+-->
+        <indent>We provoke for a realisation that we are increasingly becoming distant from our machines. <span>T</span>o be aware of the aesthetic potential that lies beyond the screen. <span>T</span>o boldly go against the original intent of our machines.</indent></h2>
+  </div>  
+    
+     <article class="col-12">
+      <figure>
+        <img src="assets/images/ok-human/1.jpg" alt="">
+      </figure>    
+  </article>  
+
+    <div class="mobile-letter">
+    <img src="assets/extras/letter.gif"></div>
+    
+    
+    <div class="interactive-letterform">
+        <div class="letterform">
+            <img class="letter-1" src="assets/images/letterforms/1-thin.svg"> 
+            <img class="letter-2" src="assets/images/letterforms/2-extralight.svg"> 
+            <img class="letter-3" src="assets/images/letterforms/3-light.svg">  
+            <img class="letter-4" src="assets/images/letterforms/4-normal.svg">  
+            <img class="letter-5" src="assets/images/letterforms/5-medium.svg">  
+            <img class="letter-6" src="assets/images/letterforms/6-demibold.svg">  
+            <img class="letter-7" src="assets/images/letterforms/7-semibold.svg">  
+            <img class="letter-8" src="assets/images/letterforms/8-bold.svg">  
+            <img class="letter-9" src="assets/images/letterforms/9-extrabold.svg">  
+            <img class="letter-10" src="assets/images/letterforms/10-ultrabold.svg">  
+            <img class="letter-11" src="assets/images/letterforms/11-black.svg">  
+            <img class="letter-12" src="assets/images/letterforms/12-heavy.svg">   
+        </div>
+
+        </div>    
+
+    <div class="helvetica"><p><a>
+        Helvetica Light*</a></p></div>
+    
+        <div class="letterform-dots">
+            <div class="dot-1">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-2">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-3">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-4">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-5">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-6">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-7">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-8">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-9">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-10">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-11">
+            
+        <div class="p-circle"></div>
+            </div> 
+            <div class="dot-12">
+            
+        <div class="p-circle"></div>
+            </div> 
+        </div>
+        
+    
+
+    
+        <div class="arial"><p><a>
+        <b>Arial Black</b></a></p></div>
+    
+    
+    <div class="download">
+        <div class="small-rule"></div>
+<!--        <p>Change text preview: <a class="underline" >Letter</a> | <a class="underline" >Word</a></p>-->
+        <div class="p-circle"></div><p>Request <a class="underline" href="">download</a></p>
+        <div class="small-rule"></div></div>
+    
+    <div class="letterform-disclaimer">
+        <h6>
+        We designed a typeface for this project which was a custom hybrid between Helvetica and Arial, an homage to the early system fonts from both Macintosh and Windows. It’s weights were designed so that the lighter it was, the more it resembled Helvetica, while the heavier it was, the more it resembled Arial.<br>
+        <div class="small-rule"></div>*Helvetica has been slightly edited to make sure the interpolation between the two fonts would function correctly. Small changes such as the tail from the lowercase ‘a’ was removed to ensure their was an equal amount of points as the Arial counterpart.</h6>
+        <div class="small-rule bottom-10"></div>
+    </div>
+    
+    
+
+</section>   
+        </div>  
+      
+<footer>  
+               
+     <article class="col-12">
+      <figure>
+        <img src="assets/images/fearful-harmony/manifesto.jpg" alt="">
+      </figure>    
+  </article>  
+          
+<div class="footer-context">
+          </div>  
+    <div class="footer-credit">
+    <div class="p-circle"></div>
+    <h6>
+        Fearful Harmony is both an exploration of the relationship between designer and machine as a means to delve into a different aesthetic and experience of our devices.</h6>
+          <h6><br>
+        Thank you to everyone who was involved and helped on the way. A special acknowledgement to Lee Jensen and Tristam Sparks for the guidance and mentorship throughout the year. 
+        <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> &amp; <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a> All Rights Reserved  </h6>
+          </div>        
+        <h1 class="footer-header" id="hover-arrow"><a class="footer-link">BACK<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1067.03 1067.03"><defs><style>.cls-1{fill:none;}.cls-2{fill:#000000;}</style></defs><title>arrow_3</title><g id="Layer_2" data-name="Layer 2"><g id="containter"><rect class="cls-1" width="1067.03" height="1067.03"/></g><g id="arrow-tail"><path class="cls-2" d="M564.65,306H391.11V244.73H564.65Z"/></g><g id="arrow-body"><path class="cls-2" d="M158,578.23H568.15c93.1,0,150.43-46.08,150.43-136.1,0-92.08-57.33-136.11-150.43-136.11H533.56V244.73h45.85c123.78,0,208.64,70.55,208.64,197.4,0,125.82-84.86,197.39-208.64,197.39H158Z"/></g><g id="arrow-tip"><polygon class="cls-2" points="511.3 578.23 511.3 639.52 198.77 639.52 198.77 734.7 31 608.87 198.77 483.05 198.77 578.23 511.3 578.23"/></g></g></svg></a>
+        </h1>
+      </footer>
+      
+       <div class="footer-background"></div>
+      </div>
+        </main> 
+        </div>
+        
+    <script>
+        $(document).ready(function() {
+            $('html').animate({scrollTop: 0}, 100);
+            $('.circle').addClass('clicked');
+            $('.nav').toggleClass('open');
+            $('html').toggleClass('menu');
+            $('main').toggleClass('open');
+            $('.loading-screen').toggleClass('open');
+            $('#background').toggleClass('open');
+        }); 
+    </script>    
+        
+    <script src="js/background.js"></script> 
+<!--    <script type="text/javascript" src="js/ready.js"></script>-->
+    <script type="text/javascript" src="js/index.js"></script>
         
 </body>
 </html>

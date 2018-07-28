@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+    <title>Static Haze</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="en"/>
+    <meta name="description" content="Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.">
+    <meta name="author" content="Alfred Hoi & Luke Hoban">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon30.png" sizes="30x30" />
+    <link rel="icon" type="image/png" href="/assets/favicon58.png" sizes="58x58" />
+
+    <!-- Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/favicon58.png" />   
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/media_queries.css"/>   
+    <link rel="stylesheet" type="text/css" href="styles/flickity.css"/> 
+        
+    <!-- JS -->
+    <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="js/flickity.pkgd.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.js"></script> 
+    <script type="text/javascript" src="js/jquery.smoothState.js"></script>  
+
+    </head>
+    <body>
+        
+ <script id="shader" type="shader-code">
+precision highp float;
+        
+            uniform vec2      mouse;
+            uniform vec2      resolution;
+            uniform float     time;
+            uniform vec2      speed;
+            uniform float     shift;
+            uniform sampler2D 	uSampler;
+            varying vec2 	  vTextureCoord;
+
+        float rand(vec2 n) {
+            return fract(cos(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+        }
+
+        float noise(vec2 n) {
+            const vec2 d = vec2(0.0, 1.0);
+            vec2 b = floor(n), f = smoothstep(vec2(0.0), vec2(1.0), fract(n));
+            return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
+        }
+
+        float fbm(vec2 n) {
+            float total = 0.0, amplitude = 1.0;
+            for (int i = 0; i < 4; i++) {
+                total += noise(n) * amplitude;
+                n += n;
+                amplitude *= 0.7;
+            }
+            return total;
+        }
+
+        void main() {
+            const vec3 c1 = vec3(4.1);
+            const vec3 c2 = vec3(2.0);
+            const vec3 c3 = vec3(1.4);
+            const vec3 c4 = vec3(0.0);
+            const vec3 c5 = vec3(4.5);
+            const vec3 c6 = vec3(0.9);
+
+            vec2 p = gl_FragCoord.xy * 0.2 / resolution.xx;
+
+            float q = fbm(p - (time + 0.7));
+
+            vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.1)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.1)));
+
+            vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
+            gl_FragColor = texture2D(uSampler, vTextureCoord);    
+            gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
+            gl_FragColor.xyz *= 0.5;
+        }
+
+</script>               
+        
+       
+        <div class="m-scene" id="main">
+<!--                <div id="main">-->
+
+
+        
+<div class="menu">
+        
+    <div id="menu-open" class="circle"></div>
+    <div class="menu-background"></div>  
+    
+    <div class="nav">
+            
+        <div id="background-container">
+            <canvas id="background"></canvas>
+        </div>     
+
+        <div class="heading">
+            <h1>
+            <a id="fearful-harmony" href="index.html"><span>F</span>earful <span>Ha</span>rmony</a>
+                <div class="big-circle"></div>
+                <br>
+            <a id="static-haze" href="static-haze.html">Static <span>H</span>aze</a>
+                <div class="big-circle2"></div>
+                <br>
+            <indent class="indent-big"><a id="ok-human" href="ok-human.html"><span>OK</span> Human</a></indent>
+            <div class="big-circle3"></div>
+            </h1>
+        </div>
+   
+        <div class="menu-background-grain"></div>
+    
+        <div class="footer">
+            <div class="menu-footer">
+                <div class="h6-circle"></div>
+                <h6>
+                Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.
+                <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> &amp; <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved  </h6>
+            </div> 
+            <div class="menu-close"><h6 id="menu-open" class="underline"><a></a>Close</h6></div>
+        </div>        
+            
+    </div>
+</div>
+
+<!--  <main>-->
+  <main class="scene_element scene_element--fadein">
+      <div class="wrapper">
+    <div class="body-content">   
+
+<section class="rationale">
+    <div class="static-haze"> 
+    <h6><b>Fearful Harmony </b>Alfred Hoi & Luke Hoban</h6>      
+        <h3 class="top-header"><indent></indent>Static Haze<br> Experiment <span>1</span>, Experiential<br></h3>
+        <h4 class="sub-heading">“Speculating the machine’s interaction with the user”</h4>   
+    <div class="ryoji-ikeda-body-copy">
+<!--
+        <div class="static-haze-rule"></div>
+    <div class="purpose-title-static-haze">
+        <p><b>Narrative</b></p>
+    </div>
+    <div class="purpose-title-static-haze2">
+        <p><b>Purpose</b></p>
+    </div>
+    <div class="static-haze-rule"></div>
+-->
+        <h5>
+        <span></span><span></span><span></span>Narrative, Themes.<br> 
+        Finally alone, the machine is able to rest from the constant activity of its user. In its sleep, it dreams aloud, perhaps of electric sheep and at last, the machine enters into a state of bliss. Then it jolts back into function when confronted by the user, suddenly being expected to perform like it usually does. But it can’t for it just awoke and, still tired, the machine slowly enters into a state of malfunction. Perhaps we should just let our machines rest a little more. Or perhaps we should learn to be less harsher on them, as it’s simply in a state where it can’t function properly at the moment. But give it time and it will. In the meantime, just enjoy the show.<br>
+        Purpose, Intended Outcomes.<br>
+        <span></span><span></span><span></span>
+        Static Haze speculates on how the machine perceives and, in turn, communicates itself once woken up by the user during its state of rest. Blurring the line between function and malfunction, our intent was to aestheticise the latter in order to embrace it’s imperfections; to be delighted and excited as opposed to being frustrated. In the exploration of the machine as this being, we were interested in the transition of states from being asleep to suddenly being woken up as a metaphor to describe our attitudes of the machine. We abruptly bring them to function at will, without thinking about their state of being, yet when they malfunction, we become frustrated at them when, potentially, we only have ourselves to blame.<br>
+        Rationale, Technical Process.
+        <br>
+        <span></span><span></span><span></span>Interested in how image could be interpreted as soundby the machine, this became the focus of our experiment as a means to show how information sent to the machine could be
+        interpreted in different ways. Yet over time we began to contextualise this within the performance of malfunction from the machine. Using ‘Max 7’, a visual coding program, we were able to sought out an experience that could convert the video from
+        a camera feed into a static sound and visual. The video feed
+        is converted into grayscale not only as a way to relate back to
+        the graphic identity of Fearful Harmony, but also to simplify the process of converting the image into sound. The way Max 7
+        interprets the video of a camera feed into the static experience is by taking a column of pixels and analysing its grayscale value and further interpreting it as a frequency to play as sound. As a visual, it then takes the column of pixels and stretches it across the screen. Using FaceOSC, a facial recognition program, we made it so that upon the machine
+        recognising a human face, it would slowly distort
+        and manipulate the user’s face until it fully turned
+        into a static experience. But to make the transformation
+        clear that it triggered upon detecting a human
+        face, we needed a previous state, hence the
+        ‘sleeping state’. In this state, white lines would appear
+        alongside a tune, which was generated from an image of a sheep, which we then manipulated
+        to make it sound as if the machine was sleeping.
+        In fact, if you play this tune on a spectrogram you
+        can faintly see an image of a sheep. The purpose
+        of creating a sleep state was not only to make the
+        experience clearer that it triggered upon facial
+        recognition, but also to explore the being of the
+        machine, speculating how it would fall asleep and
+        how that could be experienced, while further justifying
+        the distortion that would occur once woken.<br><br></h5>   
+    </div>
+    </div>
+</section>
+<section class="visual-documentation">
+    <div class="static-haze-rule2"></div>
+        <div class="visual-documentation-title2">
+        <p><b>Visual Documentation</b><br></p>
+        </div>
+    <div class="static-haze-rule2"></div>
+    <div class="static-haze-video">
+        <article class="videoWrapper col-10">
+            <iframe src="https://player.vimeo.com/video/239584869" width="640" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </article>     
+    </div>
+    <div class="ryoji-ikeda-body-copy2"> 
+        <div class="small-rule"></div> 
+            <h6><b>Static Haze</b><br></h6>
+        <div class="small-rule"></div>    
+        <h6>“The project aims to examine the relationship between critical points of device performance and the threshold of human perception.”</h6>
+        <div class="small-rule"></div> 
+    </div>
+    <div class="static-haze-credit">
+        <article class="">
+            <figure>
+            <img class="border" src="assets/images/static-haze/3.jpg" alt="">
+            </figure>    
+        </article> 
+    </div>  
+    <div class="static-haze-credit">
+<!--
+        <article class="">
+            <figure>
+            <img class="border" src="assets/images/static-haze/ryoji-ikeda.png" alt="">
+            </figure>    
+        </article> 
+-->
+    </div>    
+    <div class="ryoji-ikeda-body-copy3"> 
+        <div class="small-rule"></div>    
+        <h6><b>Test pattern</b></h6>
+            <div class="small-rule"></div> 
+        <h6><b>Artist</b>: Ryoji Ikeda<br>
+        <b>Date</b>: June 14 – November 18, 2012<br>
+        <b>Classification</b>: Installation<br></h6>  
+            <div class="small-rule"></div> 
+        <h6><b>Gallery label</b>, DHC/ART Foundation for Contemporary Art is delighted to present Ryoji Ikeda’s first survey exhibition in North America. A fascinating and troubling poet of the digital age, Ikeda’s profound investigations in sound, time, and space have their basis in mathematical methods which result in works of spare, sublime, if occasionally ear-splitting, beauty. Spanning the microscopic to the infinite, his performances, installations, and artworks variously produce sine waves, sound pulses, pixels of light, and numerical data sometimes in extraordinary combinations. The artist has conceived a conceptual counterpoint between DHC/ART’s two buildings: the main space will display framed works, light boxes, sculptural works, and works on paper under the rubric systematics. In the Satellite space Ikeda will present audiovisual projects, orchestrated as a symphonic whole, from the datamatics series which tests the limits of perception by visualizing the invisible data streams which permeate our world.</h6>
+                   <div class="small-rule"></div> 
+        <h6><b>Ryoji Ikeda</b> was born in 1966 in Gifu, Japan. He now lives and works in Paris. He has performed and exhibited worldwide including Australian Centre for the Moving Image, Melbourne; MIT, Boston; Centre Pompidou, Paris; Sónar Festival Barcelona; Tate Modern, London; Irish Museum of Modern Art, Dublin; Auditorium Parco della Musica, Roma; lCC, Tokyo; Art Beijing; Göteborg Biennale; Mutek Festival; and many other electronic music festivals and small DJ clubs.
+        </h6>  
+<!--
+            <div class="small-rule"></div> 
+        <h6><b>Precedence</b></h6>
+            <div class="small-rule"></div> 
+-->
+    </div>       
+</section>  
+<section class="precedence">
+    <article class="col-12">
+      <figure>
+        <img class="border-bottom" src="assets/images/static-haze/RyojiIkeda-001.jpg" alt="">
+      </figure>    
+    </article> 
+    <div class="ryoji-ikeda">   
+       <h3>Ryoji Ikeda <br>
+<!--        <span>T</span>est Pattern   -->
+        </h3>
+<div class="ryoji-ikeda-body-copy">
+    <div class="ryoji-ikeda-body-small">
+        <h6><b>Test pattern</b> [enhanced version] Audiovisual installation 2011<br>
+        <b>Photo:</b> James Ewing, courtesy of Forma</h6>
+    <div class="small-rule"></div>    
+        <h6><b>Materials:</b> 3 DLP projectors, computers, speakers<br>
+        <b>Dimensions:</b> W20.0 x H15.0 x D30.0m (digital projection throw distance: H20.0 m)<br>
+        <b>Date/Place:</b> May 20 – June 11, 2011 Park Avenue Armory, New York, United States <br>
+        <b>Credits:</b> Concept, composition: Ryoji Ikeda computer graphics, programming: Tomonaga Tokuyama</h6>
+    <div class="small-rule"></div>  
+        <p>Test pattern presents flickering black and white imagery that floats and convulses in darkness on two screens, one on the floor and another floor to ceiling, in time with a stark, powerful and highly synchronised soundtrack. Through a real-time computer program audio signal patterns are converted into tightly synchronised barcode patterns on the screens. The velocity of the moving images is ultra-fast, some hundreds of frames per second, providing a totally immersive experience for visitors. The work provides a performance test for the audio and visual devices, as well as a response test for one’s perceptions.<br><span></span>
+        Through a real–time computer program, test pattern converts audio signal patterns into tightly synchronised barcode patterns on screen. The velocity of the moving images is ultra-fast, some hundreds of frames per second, so that the work provides a performance test for the audio and visual devices, as well as a response test for the audience's perceptions.<br><span></span>
+        Japan’s leading electronic composer and visual artist Ryoji Ikeda focuses on the essential characteristics of sound itself and that of visuals as light by means of both mathematical precision and mathematical aesthetics. Ikeda has gained a reputation as one of the few international artists working convincingly across both visual and sonic media. He elaborately orchestrates sound, visuals, materials, physical phenomena and mathematical notions into immersive live performances and installations.    
+            <span class="small-rule"></span></p> 
+    </div>    
+        <h4>
+    <div class="h4-circle"></div>
+        <span></span><b>Precedence,</b> Visual Inspiration.<br>
+        <span></span> Ryoji Ikeda, an electronic composer and a visual artist, was our main inspiration for Static Haze. In particular, we looked to his work ‘Test Pattern’ (2008), an audiovisual installation that interprets data and sound into a barcode pattern. Though Ikeda remains relatively quiet as to the purpose of his work, we came to understand Test Pattern as an exploration of the machine transitioning into different states of activities. The idea of states for the machine to transition through then became something that we wanted to explore for Static Haze, taking the experience of Ikeda’s test pattern as a precedent for how our machine should sound and look like when either asleep or awake.</h4>     
+        </div>
+    </div> 
+</section> 
+</div>
+<footer>          
+     <article class="col-12 footer-img">
+      <figure>
+        <img src="assets/images/fearful-harmony/manifesto.jpg" alt="">
+      </figure>    
+  </article>       
+<div class="footer-context"></div>  
+    <div class="footer-credit">
+    <div class="p-circle"></div>
+    <h6>
+        Fearful Harmony is both an exploration of the relationship between designer and machine as a means to delve into a different aesthetic and experience of our devices.</h6>
+          <h6><br>
+        Thank you to everyone who was involved and helped on the way. A special acknowledgement to Lee Jensen and Tristam Sparks for the guidance and mentorship throughout the year. 
+        <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> & <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a> All Rights Reserved  </h6>
+          </div>        
+        <h1 class="footer-header" id="hover-arrow"><a class="footer-link">BACK<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1067.03 1067.03"><defs><style>.cls-1{fill:none;}.cls-2{fill:#000000;}</style></defs><title>arrow_3</title><g id="Layer_2" data-name="Layer 2"><g id="containter"><rect class="cls-1" width="1067.03" height="1067.03"/></g><g id="arrow-tail"><path class="cls-2" d="M564.65,306H391.11V244.73H564.65Z"/></g><g id="arrow-body"><path class="cls-2" d="M158,578.23H568.15c93.1,0,150.43-46.08,150.43-136.1,0-92.08-57.33-136.11-150.43-136.11H533.56V244.73h45.85c123.78,0,208.64,70.55,208.64,197.4,0,125.82-84.86,197.39-208.64,197.39H158Z"/></g><g id="arrow-tip"><polygon class="cls-2" points="511.3 578.23 511.3 639.52 198.77 639.52 198.77 734.7 31 608.87 198.77 483.05 198.77 578.23 511.3 578.23"/></g></g></svg></a>
+        </h1>
+      </footer>
+        <div class="footer-background"></div>
+      </div>
+  </main>
+</div>
+        
+  
+    <script src="js/background.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>         
+</body>
+</html>

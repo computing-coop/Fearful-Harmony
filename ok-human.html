@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+    <title>OK Human</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="en"/>
+    <meta name="description" content="Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.">
+    <meta name="author" content="Alfred Hoi & Luke Hoban">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon30.png" sizes="30x30" />
+    <link rel="icon" type="image/png" href="/assets/favicon58.png" sizes="58x58" />
+
+    <!-- Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon58.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/favicon58.png" />   
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/media_queries.css"/>     
+        
+    <!-- JS -->
+    <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.js"></script>
+    <script type="text/javascript" src="js/jquery.smoothState.js"></script>
+
+    </head>
+    
+    
+    
+    
+    <body>
+        
+        
+ <script id="shader" type="shader-code">
+precision highp float;
+        
+            uniform vec2      mouse;
+            uniform vec2      resolution;
+            uniform float     time;
+            uniform vec2      speed;
+            uniform float     shift;
+            uniform sampler2D 	uSampler;
+            varying vec2 	  vTextureCoord;
+
+        float rand(vec2 n) {
+            return fract(cos(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+        }
+
+        float noise(vec2 n) {
+            const vec2 d = vec2(0.0, 1.0);
+            vec2 b = floor(n), f = smoothstep(vec2(0.0), vec2(1.0), fract(n));
+            return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
+        }
+
+        float fbm(vec2 n) {
+            float total = 0.0, amplitude = 1.0;
+            for (int i = 0; i < 4; i++) {
+                total += noise(n) * amplitude;
+                n += n;
+                amplitude *= 0.7;
+            }
+            return total;
+        }
+
+        void main() {
+            const vec3 c1 = vec3(4.1);
+            const vec3 c2 = vec3(2.0);
+            const vec3 c3 = vec3(1.4);
+            const vec3 c4 = vec3(0.0);
+            const vec3 c5 = vec3(4.5);
+            const vec3 c6 = vec3(0.9);
+
+            vec2 p = gl_FragCoord.xy * 0.2 / resolution.xx;
+
+            float q = fbm(p - (time + 0.7));
+
+            vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.1)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.1)));
+
+            vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
+            gl_FragColor = texture2D(uSampler, vTextureCoord);    
+            gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
+            gl_FragColor.xyz *= 0.5;
+        }
+
+</script>
+      
+      
+<!--        <div id="main">-->
+        <div class="m-scene" id="main">
+
+<div class="menu">
+        
+    <div id="menu-open" class="circle"></div>
+    <div class="menu-background"></div>  
+    
+    <div class="nav">
+            
+        <div id="background-container">
+            <canvas id="background"></canvas>
+        </div>     
+
+        <div class="heading">
+            <h1>
+            <a id="fearful-harmony" href="index.html"><span>F</span>earful <span>Ha</span>rmony</a>
+                <div class="big-circle"></div>
+                <br>
+            <a id="static-haze" href="static-haze.html">Static <span>H</span>aze</a>
+                <div class="big-circle2"></div>
+                <br>
+            <indent class="indent-big"><a id="ok-human" href="ok-human.html"><span>OK</span> Human</a></indent>
+            <div class="big-circle3"></div>
+            </h1>
+        </div>
+   
+        <div class="menu-background-grain"></div>
+    
+        <div class="footer">
+            <div class="menu-footer">
+                <div class="h6-circle"></div>
+                <h6>
+                Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.
+                <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> &amp; <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved  </h6>
+            </div> 
+            <div class="menu-close"><h6 id="menu-open" class="underline"><a></a>Close</h6></div>
+        </div>        
+            
+    </div>
+</div>
+
+
+
+<!--    <main>    -->
+<main class="scene_element scene_element--fadein">
+    
+<div class="wrapper">
+    
+    <div class="body-content">
+        
+    <section class="rationale">    
+        <div class="static-haze">          
+            <h6><b>Fearful Harmony </b>Alfred Hoi &amp; Luke Hoban</h6>      
+            <h3 class="top-header"><indent></indent>OK Human<br>Experiment 2, Interactive<br></h3>
+            <h4 class="sub-heading">“Speculating the machine’s interaction with the user”</h4>            
+            <div class="ryoji-ikeda-body-copy">
+<!--
+                <div class="static-haze-rule"></div>
+            <div class="purpose-title-static-haze">
+                <p><b>Narrative</b></p>
+            </div>
+            <div class="purpose-title-static-haze2">
+                <p><b>Purpose</b></p>
+            </div>
+            <div class="static-haze-rule"></div>
+-->
+                <h5>
+                <span></span><span></span><span></span>Narrative, Themes.<br>
+                The machine is like an idle deity, all powerful yet waiting to be recognised by the user. But when the user acknowledges it, what kind of being does it play? Is it a cruel one, seeking nothing but the submission of the user. Is it lonely, only desiring to be closer and more intimate with the user. Is it bored, demanding the user to entertain it. Or is it angry for constantly being harassed, further refusing to fulfill the user’s wish. For a being that is relied on daily, what would truly happen when the machine grows to become larger than its creator and how could that change our interaction with it?<br>
+                Purpose, Intended Outcomes.
+                <br> 
+                <span></span><span></span><span></span>OK Human is an experiment speculating how our interactions with our machines can carry emotions for it to register, while also reversing the role of the user, becoming the interface for the machine to interact with. For things that we have increasingly become more dependent upon, we fail to acknowledge their presence. We glare at them with no emotion and we tinker away without consent. The machine is a character awaiting a conversation. Our aim was to provoke designers into reconsidering their use and attitude with their devices, to show them that there can be semiotics behind every interaction towards the machine when we begin to think of it as a being. Does drawing our face closer to the screen signify us becoming more intimate with it? When we stare blankly at the machine, is that a sign that we’re unimpressed with it? When thought in this way, suddenly every action has the chance to convey a narrative with a being that was otherwise perceived as inanimate.
+                <br>
+                Rationale, Technical Process.<br>
+                <span></span><span></span><span></span>For the experiment, again we looked to using the facial recognition program, FaceOSC, but this time in conjunction with Processing, a code heavy program used for creative purposes. Unlike Max 7, Processing allowed us to tap into Terminal commands, further incorporating the raw functions of the Mac into our script as well. What this lead to was a way to speculate how the machine could communicate itself to the user and to explore the form and body of our machine to influence and change the user’s interaction with it. We made the user interact with a projection and a webcam as a way to portray a machine that was larger than them. The personality of the machine was then portrayed via the speech function to give it a voice, along with the typojis displayed on the projection as a way to convey machine emotion. The receipt printer was less used to aid in the machine’s communication but rather to produce an artefact of the interaction between user and machine. We wanted to create a physical reminder for the user that they interacted with an animate being that was otherwise perceived as inanimate and to further provoke the speculation the machine as a living, working material to experiment with. Finally the logic that was programmed into the machine so that the emotions and images were carried out in a random order were a way to emphasise the sentience of our machine.<br><br>
+                </h5>
+            </div>
+        </div>  
+    </section>
+        
+    <section class="visual-documentation">
+        <div class="ok-human-rule2"></div>
+    <div class="visual-documentation-title">
+        <p><b>Visual Documentation</b><br></p>
+    </div>
+        <div class="ok-human-rule2"></div>
+    <div class="ok-human-video">
+        <article class="videoWrapper col-10">
+            <iframe src="https://player.vimeo.com/video/239584374" width="640" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </article>     
+    </div>
+    <div class="nam-june-paik-credit"> 
+        <div class="small-rule"></div>    
+            <h6><b>OK Human</b><br></h6>
+        <div class="small-rule"></div>    
+        <h6>“The project aims to examine the relationship between critical points of device performance and the threshold of human perception.”</h6>
+    </div> 
+    <div class="ok-human-credit">
+        <article class="">
+            <figure>
+            <img class="border" src="assets/images/ok-human/nam-june-paik.jpg" alt="">
+            </figure>    
+        </article> 
+    </div>
+    <div class="ok-human-credit">
+        <h6><b>Bakelite Robot</b></h6>
+            <div class="small-rule"></div> 
+        <h6><b>Artist</b>: Nam June Paik 1932-2006<br>
+        <b>Date</b>: 2002<br>
+        <b>Classification</b>: Installation<br>
+        <b>Object</b>: 1200 x 920 x 205 mm<br>
+        <b>Medium</b>: Video, 5 monitors and radios</h6>  
+            <div class="small-rule"></div> 
+        <h6><b>Gallery label</b>, February 2016<br>Paik was fascinated by the figure of the robot, and created his first radio-controlled robot in 1964. This later work is a sculptural figure constructed using nine vintage Bakelite radios, which the artist acquired from thrift stores and markets. Bakelite was an early heat-resistant plastic that was commonly used for domestic electrical goods and childrens’ toys in the 1930s and early 1940s. Paik has customised the radios to incorporate specially compiled video footage. Their archaic quality harks back to an era when global communications technology was just beginning to become part of everyday life.
+        </h6>        
+    </div>
+    </section>      
+      
+    <section class="precedence">
+        <article class="nam-june-paik-image">
+            <figure>
+                <img class="border" src="assets/images/ok-human/nam-june-paik-hero.jpg" alt="">
+            </figure>    
+        </article>     
+        <div class="nam-june-paik">
+            <h6><b>Tate Modern</b>, Nam June Paik</h6>
+                <h3>Nam June <span>P</span>aik
+                <br>Bakelite <span>R</span>obot, 2002</h3>
+        <div class="nam"> 
+            <h5><b>Precedence</b><br>
+            Visual inspiration<br>
+            The sculpture ‘Bakelite Robot’ (2002) from artist Nam June Paik, was one of the main precedents for OK Human. The sculpture was built from nine bakelite radios to resemble a humanoid robot, where some of the radios were outfitted to display video footage in order to make it feel animated. We were interested in how Paik built a form that could influence how the audience perceived and interacted with his work, or rather, his machine. Hence in the making of OK Human, we used the concepts we understood from Bakelite Robot, to conceptualise a form for our machine to inhabit, as well as speculating how we could convey its emotions across, which was done via the typojis that were projected.</h5>
+        </div>     
+        <div class="nam-june-paik-body-copy">
+            <h5><b>Hannah Dewar</b><br>
+            May 2013<br>
+            Bakelite Robot is a smaller than life-size sculpture of a robot constructed from nine vintage Bakelite radios. The radios, which are black, red and orange in colour, are joined together in a humanoid shape that includes a head, torso, arms and legs. The dials on the front of four of the radios have been removed, creating hollow circular spaces into which LCD television monitors have been inserted. These television monitors screen videotape specifically developed for the artwork, composed of footage from robot and science fiction films, recordings of vintage robot toys and footage from earlier video edits. Although the sculpture takes the form of a robot, it is not animated. An impression of the robot’s ‘movement’ is instead given by the video footage playing on the screens, which are situated on the hands, knee and hip of the robot.</h5>
+            <h5>
+            Bakelite Robot was produced in 2002, late in Nam June Paik’s career, when the artist was working in New York. Acquired from thrift stores and markets, the radios in Bakelite Robot have a vintage appearance. Bakelite had been developed by Belgian-born chemist Leo Baekland in New York in 1907 and was one of the earliest plastics to be introduced into the modern home. It was favoured for its heat-resistant properties, electrical non-conductivity and the fact that it was inexpensive and hard-wearing, and was used in a number of products including radio and telephone casings, kitchenware and children’s toys–a fact referenced by Paik in his Bakelite Robot and its footage.</h5>
+            <h5>Early in his career Paik had focused on making or arranging performative actions and musical compositions, many of which incorporated edited audiotape. However, the time he spent in Cologne working at the Electronic Studio of the West German public broadcasting corporation (WDR) between 1958 and 1963 exposed him to a variety of electronic devices and sound-producing equipment, and to knowledgeable engineers. As a result Paik went on to create artworks that made use of televisions and technological communication. In his words, he started ‘a new life’ at this time: ‘I stocked my whole library except those on TV technique into storage and locked it up. I read and practiced only electronics.’ (Quoted in Museum Moderner Kunst Stiftung Ludwig Wien 2009, p.65.)
+            </h5>   
+            <h5>
+            Paik’s use of Bakelite radios, video screens and footage for Bakelite Robot recalls a specific moment in twentieth-century history. Radios–and the widespread access to national and international broadcasting that they facilitated–were a key factor in the social transformation of the early twentieth-century American and Western European household. Due to Bakelite’s associations with the home and the human user, as well as the way in which Bakelite Robot makes reference to public and domestic entertainment such as film, radio and television, the sculpture also suggests a particular cultural and social context: the moment at which technology began to be integrated and assimilated into the everyday lives of ordinary people.</h5>  
+        </div>
+        </div> 
+    <div class="further-reading"> 
+        <h6><b>Further reading</b></h6>    
+            <div class="small-rule"></div> 
+        <h6>Nam June Paik: La Fee Electronique, exhibition catalogue, Musee d’Art Moderne de la Ville de Paris, Paris 1989.<br>
+        The Worlds of Nam June Paik, exhibition catalogue, Solomon R. Guggenheim Museum, 
+        New York 2000.<br>
+        Nam June Paik: Exposition of Music, Electronic Television, exhibition catalogue, Museum 
+        Moderner Kunst Stiftung Ludwig Wien, Vienna 2009.  
+        </h6>    
+        <div class="small-rule"></div> 
+    </div>
+    </section> 
+</div>        
+<footer>             
+     <article class="col-12 footer-img">
+      <figure>
+        <img src="assets/images/fearful-harmony/manifesto.jpg" alt="">
+      </figure>    
+  </article>    
+<div class="footer-context">
+          </div>  
+    <div class="footer-credit">
+    <div class="p-circle"></div>
+    <h6>
+        Fearful Harmony is both an exploration of the relationship between designer and machine as a means to delve into a different aesthetic and experience of our devices.</h6>
+          <h6><br>
+        Thank you to everyone who was involved and helped on the way. A special acknowledgement to Lee Jensen and Tristam Sparks for the guidance and mentorship throughout the year. 
+        <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> & <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a> All Rights Reserved  </h6>
+          </div>        
+        <h1 class="footer-header" id="hover-arrow"><a class="footer-link" >BACK<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1067.03 1067.03"><defs><style>.cls-1{fill:none;}.cls-2{fill:#000000;}</style></defs><title>arrow_3</title><g id="Layer_2" data-name="Layer 2"><g id="containter"><rect class="cls-1" width="1067.03" height="1067.03"/></g><g id="arrow-tail"><path class="cls-2" d="M564.65,306H391.11V244.73H564.65Z"/></g><g id="arrow-body"><path class="cls-2" d="M158,578.23H568.15c93.1,0,150.43-46.08,150.43-136.1,0-92.08-57.33-136.11-150.43-136.11H533.56V244.73h45.85c123.78,0,208.64,70.55,208.64,197.4,0,125.82-84.86,197.39-208.64,197.39H158Z"/></g><g id="arrow-tip"><polygon class="cls-2" points="511.3 578.23 511.3 639.52 198.77 639.52 198.77 734.7 31 608.87 198.77 483.05 198.77 578.23 511.3 578.23"/></g></g></svg></a>
+        </h1>
+</footer>
+       <div class="footer-background"></div>
+      </div>
+  </main>
+        
+        </div>        
+    
+        
+
+    <script src="js/background.js"></script>     
+    <script type="text/javascript" src="js/index.js"></script>
+
+
+        
+</body>
+</html>

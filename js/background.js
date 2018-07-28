@@ -72,7 +72,7 @@ if (renderer.RENDERER_TYPE = PIXI.RENDERER_TYPE.UNKNOWN) {
 var colour = 0x000000;
 };
 
-document.body.appendChild(renderer.view);
+document.getElementById("background-container").appendChild(renderer.view);
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.settings.GC_MODE = PIXI.GC_MODES.MANUAL;
