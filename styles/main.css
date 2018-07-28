@@ -1455,7 +1455,7 @@ indent:hover + .big-circle3{
 /*small*/
 
 #hover-arrow2:hover svg{
-    transform: translateX(0px);
+    transform: translateX(0px) scaleX(1);
     transition: .4s  ease;
 }
 
@@ -1465,12 +1465,12 @@ indent:hover + .big-circle3{
 }
 
 #hover-arrow2:hover #arrow-tip{
-    transform: translateX(-4em);
+    transform: translateX(-4em) scaleX(.9);
     transition: .3s ease;
 }
 
 #hover-arrow3:hover svg{
-    transform: translateX(0px);
+    transform: translateX(0px) scaleX(1);
     transition: .4s  ease;
 }
 
@@ -1480,7 +1480,7 @@ indent:hover + .big-circle3{
 }
 
 #hover-arrow3:hover #arrow-tip{
-    transform: translateX(-4em);
+    transform: translateX(-4em) scaleX(.9);
     transition: .3s ease;
 }
 
