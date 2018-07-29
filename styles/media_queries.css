@@ -323,7 +323,7 @@ p {
 .ryoji-ikeda-body-copy2{
     clear: both;
     float: left; 
-    margin-top: 11px;
+    margin-top: -25px;
     margin-left: calc(15% + 40px);
     width: calc(85% - 50px);
     margin-right: 0px; 
@@ -744,7 +744,7 @@ p {
 .ryoji-ikeda-body-copy2{
     clear: both;
     float: left; 
-    margin-top: 10px;
+    margin-top: -26px;
     margin-left: calc(15% + 40px);
     width: calc(85% - 50px);
     margin-right: 0px; 
@@ -1161,7 +1161,7 @@ p {
 .ryoji-ikeda-body-copy2{
     clear: both;
     float: left; 
-    margin-top: 10px;
+    margin-top: -26px;
     margin-left: calc(15% + 40px);
     width: calc(85% - 50px);
     margin-right: 0px; 
@@ -1481,7 +1481,7 @@ p {
 .ryoji-ikeda-body-copy2{
     clear: both;
     float: right; 
-    margin-top: -23px;
+    margin-top: -59px;
     width: calc(55% - 30px);
     margin-right: 40px; 
 }    
@@ -1539,7 +1539,7 @@ p {
 } 
     
 .ryoji-ikeda-body-copy2{
-    margin-top: -28px;
+    margin-top: -64px;
 }
 .nam-june-paik-credit{
     margin-top: -74px;
@@ -1555,7 +1555,7 @@ p {
     top: -34px; 
 } 
 .ryoji-ikeda-body-copy2{
-    margin-top: -32px;
+    margin-top: -68px;
 }
 .nam-june-paik-credit{
     margin-top: -78px;
@@ -1571,10 +1571,19 @@ p {
     top: -35px; 
 } 
 .ryoji-ikeda-body-copy2{
-    margin-top: -35px;
+    margin-top: -70px;
 }
 .nam-june-paik-credit{
     margin-top: -80px;
+}      
+}
+@media screen and (min-width: 1401px) and (max-width: 1439px) {
+
+.ryoji-ikeda-body-copy2{
+    margin-top: -73px;
+}
+.nam-june-paik-credit{
+    margin-top: -82px;
 }      
 }
 
@@ -1587,7 +1596,7 @@ p {
     top: -37px; 
 } 
 .ryoji-ikeda-body-copy2{
-    margin-top: -38px;
+    margin-top: -74px;
 }
 .nam-june-paik-credit{
     margin-top: -84px;
@@ -1603,7 +1612,7 @@ p {
     top: -39px; 
 } 
 .ryoji-ikeda-body-copy2{
-    margin-top: -42px;
+    margin-top: -77px;
 }    
 .nam-june-paik-credit{
     margin-top: -87px;
@@ -1619,7 +1628,7 @@ p {
     top: -40px; 
 }   
 .ryoji-ikeda-body-copy2{
-    margin-top: -45px;
+    margin-top: -80px;
 }    
    
 .nam-june-paik-credit{
@@ -1689,7 +1698,15 @@ p {
     top: -40px; 
 }    
 .ryoji-ikeda-body-copy2{
-    margin-top: -45px;
+    margin-top: -81px;
+} 
+body.open{
+    background-color: #d0d0d0; 
+    -webkit-transition: .6s ease;
+    transition: .6s ease;
+}    
+.footer-background.open{
+    opacity: 0;
 }    
     
 }
