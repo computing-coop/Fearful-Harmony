@@ -39,9 +39,11 @@ $(function() {
         
 
         if (difference <= 300) {
+//            $('body').addClass('open');
             $(".body-content").addClass('open');
             $(".footer-background").addClass('open');
         } else {
+//            $('body').removeClass('open');
              $(".body-content").removeClass('open');
              $(".footer-background").removeClass('open');
         }

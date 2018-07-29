@@ -40,7 +40,8 @@ html.open{
 */
 
 html.menu{
-    overflow-y: hidden;
+    overflow-y: hidden !important;
+    overflow: hidden !important;
 }
 
 html.index{
@@ -58,11 +59,11 @@ html.index{
 /*
 body.open{
     background-color: #d0d0d0; 
-
     -webkit-transition: .6s ease;
     transition: .6s ease;
 }
 */
+
 article, aside, details, figcaption, figure, footer, header, hgroup,
 menu, nav, section {
     display: block
@@ -1711,6 +1712,7 @@ footer article{
     margin-top: 5px;
     display: inline-block
 }
+
 .footer-context{
     bottom: 0px;
     width: 520px;
