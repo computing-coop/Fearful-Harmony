@@ -627,8 +627,8 @@ span.tip {
     width: 100vw;
     -webkit-transform: translate(0px,0px);
     transform: translate(0px,0px);
-    -webkit-transition: .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .3s ease;
-    transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .3s ease;
+    -webkit-transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .3s cubic-bezier(.55,.02,.11,.99);
+    transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .3s cubic-bezier(.55,.02,.11,.99);
     opacity: 1 !important;
     z-index: 5000;
 }
@@ -857,7 +857,7 @@ span.tip {
     -webkit-box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
     -moz-box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
     box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #333;
     background-color: rgb(150, 150, 150);
     cursor: n-resize;
     width: 100vw;
@@ -881,7 +881,7 @@ span.tip {
     transform: translate(0px,calc(-100vh + 11px));
     -webkit-transition: .9s cubic-bezier(.55,.02,.11,.99)!important;
     transition: .9s cubic-bezier(.55,.02,.11,.99)!important;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #333;
 }
 
 .nav.open{
@@ -892,7 +892,7 @@ span.tip {
     transform: translate(0px, 0vh);
     -webkit-transition: .6s cubic-bezier(.55,.02,.11,.99)!important;
     transition: .6s cubic-bezier(.55,.02,.11,.99)!important;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #333;
 }
 
 .nav.index{
