@@ -79,11 +79,11 @@
             const vec3 c1 = vec3(4.1);
             const vec3 c2 = vec3(2.0);
             const vec3 c3 = vec3(1.4);
-            const vec3 c4 = vec3(0.0);
+            const vec3 c4 = vec3(0.10);
             const vec3 c5 = vec3(4.5);
             const vec3 c6 = vec3(0.9);
 
-            vec2 p = gl_FragCoord.xy * 0.2 / resolution.xx;
+            vec2 p = gl_FragCoord.xy * 0.375 / resolution.xx;
 
             float q = fbm(p - (time + 0.7));
 

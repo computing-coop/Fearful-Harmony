@@ -940,7 +940,7 @@ span.tip {
     left: 0px;
     z-index: 1 !important;
     position: fixed;
-    opacity: 0.13;
+    opacity: 0.1;
     mix-blend-mode: soft-light;  
 }
 
