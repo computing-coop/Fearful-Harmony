@@ -1260,6 +1260,10 @@ indent:hover + .big-circle3{
     position: relative;
     margin-top: 5px;
 }
+.hero-caption h6{
+    padding-top: 1px;
+    padding-left: 20px
+}
 
 .interactive-letterform{
     width: 100%;
@@ -1373,6 +1377,7 @@ indent:hover + .big-circle3{
     width: 80%;
     left: 10%;
     pointer-events: none;
+    display: none;
 }
 
 .letterform-dots div{
