@@ -63,7 +63,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 menu, nav, section {
     display: block
 }
-
 header{
     position: fixed !important;
     height: 100vh;
@@ -857,7 +856,7 @@ span.tip {
     -webkit-box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
     -moz-box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
     box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
-    border-bottom: 1px solid #333;
+    border-bottom: 0px solid #333;
     background-color: rgb(150, 150, 150);
     cursor: n-resize;
     width: 100vw;
@@ -881,7 +880,7 @@ span.tip {
     transform: translate(0px,calc(-100vh + 11px));
     -webkit-transition: .9s cubic-bezier(.55,.02,.11,.99)!important;
     transition: .9s cubic-bezier(.55,.02,.11,.99)!important;
-    border-bottom: 1px solid #333;
+    border-bottom: 0px solid #333;
 }
 
 .nav.open{
@@ -892,7 +891,7 @@ span.tip {
     transform: translate(0px, 0vh);
     -webkit-transition: .6s cubic-bezier(.55,.02,.11,.99)!important;
     transition: .6s cubic-bezier(.55,.02,.11,.99)!important;
-    border-bottom: 1px solid #333;
+    border-bottom: 0px solid #333;
 }
 
 .nav.index{
@@ -1841,7 +1840,10 @@ svg{
 }
 
 .ryoji-ikeda-body-copy{
-    margin-right: 60px;   
+    margin-right: 60px;
+}
+.ryoji-ikeda-body-copy p .small-rule:nth-child(10){
+    margin-bottom: -10px;
 }
 
 .static-haze h6{
@@ -1863,6 +1865,8 @@ svg{
 .static-haze p .small-rule{
     margin-top: 10px;
 }
+
+
 
 .ryoji-ikeda-body-copy .h4-circle{
     margin-top: 10px;   
@@ -1922,7 +1926,7 @@ svg{
     float: left;
     width: 41.7%;
     margin-left: 60px;
-    margin-top: 0px;
+    margin-top: 2px;
     margin-bottom: 20px;
 }
 
