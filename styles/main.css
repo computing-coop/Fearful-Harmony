@@ -1871,7 +1871,9 @@ svg{
     margin-top: 10px;
 }
 
-
+.ryoji-ikeda-body-copy p .small-rule{
+    margin-bottom: 6px;
+}
 
 .ryoji-ikeda-body-copy .h4-circle{
     margin-top: 10px;   
