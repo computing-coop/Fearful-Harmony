@@ -626,8 +626,8 @@ span.tip {
     width: 100vw;
     -webkit-transform: translate(0px,0px);
     transform: translate(0px,0px);
-    -webkit-transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .3s cubic-bezier(.55,.02,.11,.99);
-    transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .3s cubic-bezier(.55,.02,.11,.99);
+    -webkit-transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .4s cubic-bezier(.55,.02,.11,.99);
+    transition: transform .6s cubic-bezier(.55,.02,.11,.99), opacity .6s .4s cubic-bezier(.55,.02,.11,.99);
     opacity: 1 !important;
     z-index: 5000;
 }
@@ -637,7 +637,7 @@ span.tip {
     transform: translate(0px,calc(0vh + 13px));
     -webkit-transition: .9s cubic-bezier(.55,.02,.11,.99);
     transition: .9s cubic-bezier(.55,.02,.11,.99);
-    opacity: 0.95 !important;
+    opacity: 1 !important;
 }
 
 .wrapper.open {
@@ -911,8 +911,8 @@ span.tip {
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
-    -webkit-transition: visibility 0.6s 0s, opacity .6s  1s;
-    transition: visibility 0.6s 0s, opacity .6s 1s;
+    -webkit-transition: visibility 0.6s 0s cubic-bezier(.55,.02,.11,.99), opacity .6s  1s cubic-bezier(.55,.02,.11,.99);
+    transition: visibility 0.6s 0s cubic-bezier(.55,.02,.11,.99), opacity .6s 1s cubic-bezier(.55,.02,.11,.99);
 }
 
 #background.hover{
@@ -924,8 +924,8 @@ span.tip {
 #background.open{
     opacity: 1;
     visibility: visible;
-    -webkit-transition: visibility 0.6s 0s, opacity  1s;
-    transition: visibility 0.6s 0s, opacity 1s;
+    -webkit-transition: visibility 0.6s 0s cubic-bezier(.55,.02,.11,.99), opacity  1s;
+    transition: visibility 0.6s 0s cubic-bezier(.55,.02,.11,.99), opacity 1s cubic-bezier(.55,.02,.11,.99);
 }
 
 
