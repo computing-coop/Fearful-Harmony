@@ -347,7 +347,7 @@ window.ondevicemotion = function(evt) {
 //    lastX = x
 //    lastY = y
 //    lastZ = z
-})
+}
 
 //function moveTouch(ev) {
 //    mousePos = {x:evt.clientX, y:evt.clientY}
