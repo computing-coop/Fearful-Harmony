@@ -333,16 +333,31 @@ document.onmousemove = function(evt){
   smokeShader.uniforms.mouse = mousePos;
 }
 
-function moveTouch(ev) {
- // Process the event
-      mousePos = {x:evt.clientX,y:evt.clientY}
-  smokeShader.uniforms.mouse = mousePos;
-}
+window.addEventListener('devicemotion', function(event) {
+    mousePos = {x:event.accelerationIncludingGravity.x, y:event.accelerationIncludingGravity.y} 
+    smokeShader.uniforms.mouse = mousePos;
+//    var deltaX = lastX - x
+//    var deltaY = lastY - y
+//    var deltaZ = lastZ - z
+//
+//    var deltaA = Math.max(deltaX, deltaY, deltaZ)
+//
+//    if(Math.abs(deltaA) > 0.2) onOffset()
+//
+//    lastX = x
+//    lastY = y
+//    lastZ = z
+})
 
-function init() {
- var el=document;
- el.ontouchmove = moveTouch;
-}    
+//function moveTouch(ev) {
+//    mousePos = {x:evt.clientX, y:evt.clientY}
+//    smokeShader.uniforms.mouse = mousePos;
+//}
+//
+//function init() {
+// var el=document;
+// el.ontouchmove = moveTouch;
+//}    
         
     },
   };
