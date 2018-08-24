@@ -133,15 +133,20 @@ document.onmousemove = function(evt){
   smokeShader.uniforms.mouse = mousePos;
 }
 
-function moveTouch(ev) {
- // Process the event
-      mousePos = {x:evt.clientX,y:evt.clientY}
-  smokeShader.uniforms.mouse = mousePos;
-}
-
-function init() {
- var el=document;
- el.ontouchmove = moveTouch;
+window.ondevicemotion = function(evt) {
+    mousePos = {x:evt.acceleration.x*10, y:evt.acceleration.y*10} 
+    smokeShader.uniforms.mouse = mousePos;
+//    var deltaX = lastX - x
+//    var deltaY = lastY - y
+//    var deltaZ = lastZ - z
+//
+//    var deltaA = Math.max(deltaX, deltaY, deltaZ)
+//
+//    if(Math.abs(deltaA) > 0.2) onOffset()
+//
+//    lastX = x
+//    lastY = y
+//    lastZ = z
 }
 
 //document.ontouchmove = function(evt){
