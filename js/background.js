@@ -135,7 +135,7 @@ document.onmousemove = function(evt){
 
 window.ondevicemotion = function(evt) {
     mousePos = {x:evt.acceleration.x, y:evt.acceleration.y} 
-    smokeShader.uniforms.mouse = mousePos*10;
+    smokeShader.uniforms.mouse = mousePos;
 //    var deltaX = lastX - x
 //    var deltaY = lastY - y
 //    var deltaZ = lastZ - z
