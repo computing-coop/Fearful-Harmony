@@ -665,7 +665,7 @@ span.tip {
     top: 0px;
     left: -0px;
     z-index: 12;
-    cursor: n-resize;
+    cursor: s-resize;
     mix-blend-mode: difference;
 }
 
@@ -678,7 +678,7 @@ span.tip {
     z-index: 11;
     opacity: .95;
     mix-blend-mode: multiply;
-    cursor: n-resize;
+    cursor: s-resize;
 }
 
 .heading{
@@ -771,7 +771,7 @@ span.tip {
     -moz-box-shadow: inset 0px -10px 10px -10px rgba(22,22,22,95);
     box-shadow: inset 0px -10px 10px -10px rgba(20,20,20,.95);
     border-bottom: 1px solid #000;  
-    cursor: n-resize;
+    cursor: s-resize;
     width: 100vw;
     height: 100vh;
     top: 0px;
@@ -806,7 +806,7 @@ span.tip {
 }
 
 #landing-background{
-    cursor: n-resize;
+    cursor: s-resize;
     width: 100vw;
     height: 100vh;
     top: 0vh;
@@ -821,7 +821,7 @@ span.tip {
 }
 
 #landing-background.hover{
-    cursor: n-resize;
+    cursor: s-resize;
     width: 100vw;
     height: 100vh;
     top: 0vh;
@@ -858,7 +858,7 @@ span.tip {
     box-shadow: inset 0px -10px 10px -10px rgba(0,0,0,.95)!important;
     border-bottom: 0px solid #333;
     background-color: rgb(150, 150, 150);
-    cursor: n-resize;
+    cursor: s-resize;
     width: 100vw;
     height: 100vh;
     top: 0px;
