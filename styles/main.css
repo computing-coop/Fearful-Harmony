@@ -665,7 +665,7 @@ span.tip {
     top: 0px;
     left: -0px;
     z-index: 12;
-    cursor: s-resize;
+    cursor: n-resize;
     mix-blend-mode: difference;
 }
 
@@ -678,7 +678,7 @@ span.tip {
     z-index: 11;
     opacity: .95;
     mix-blend-mode: multiply;
-    cursor: s-resize;
+    cursor: n-resize;
 }
 
 .heading{
