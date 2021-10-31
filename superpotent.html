@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-    <title>Yonder Peruse</title>
+    <title>Superpotent</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="content-language" content="en"/>
@@ -42,58 +42,6 @@
     </head>
 
     <body>        
- <script id="shader" type="shader-code">
-precision highp float;
-        
-            uniform vec2      mouse;
-            uniform vec2      resolution;
-            uniform float     time;
-            uniform vec2      speed;
-            uniform float     shift;
-            uniform sampler2D 	uSampler;
-            varying vec2 	  vTextureCoord;
-
-        float rand(vec2 n) {
-            return fract(cos(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
-        }
-
-        float noise(vec2 n) {
-            const vec2 d = vec2(0.0, 1.0);
-            vec2 b = floor(n), f = smoothstep(vec2(0.0), vec2(1.0), fract(n));
-            return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
-        }
-
-        float fbm(vec2 n) {
-            float total = 0.0, amplitude = 1.0;
-            for (int i = 0; i < 4; i++) {
-                total += noise(n) * amplitude;
-                n += n;
-                amplitude *= 0.7;
-            }
-            return total;
-        }
-
-        void main() {
-            const vec3 c1 = vec3(4.1);
-            const vec3 c2 = vec3(2.0);
-            const vec3 c3 = vec3(1.4);
-            const vec3 c4 = vec3(0.10);
-            const vec3 c5 = vec3(4.5);
-            const vec3 c6 = vec3(0.9);
-
-            vec2 p = gl_FragCoord.xy * 0.375 / resolution.xx;
-
-            float q = fbm(p - (time + 0.7));
-
-            vec2 r = vec2(fbm(p + q + time + 1.0 * (((mouse.x/resolution.x)*0.1)) - p.x - p.y), fbm(p + q - time + 1.0 * (-(mouse.y/resolution.y)*0.1)));
-
-            vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
-            gl_FragColor = texture2D(uSampler, vTextureCoord);    
-            gl_FragColor = vec4(c * cos(shift * gl_FragCoord.y / resolution.y), .5);
-            gl_FragColor.xyz *= 0.5;
-        }
-
-</script>
       
       
 <!--        <div id="main">-->
@@ -110,15 +58,16 @@ precision highp float;
             <canvas id="background"></canvas>
         </div>     
 
+
         <div class="heading">
             <h1>
-            <a id="fearful-harmony" href="index"><span>F</span>earful <span>Ha</span>rmony</a>
+            <a id="fearful-harmony" href="/"><span>D</span>ense <span>Jo</span>urnal</a>
                 <div class="big-circle"></div>
                 <br>
-            <a id="static-haze" href="static-haze">Static <span>H</span>aze</a>
+            <a id="static-haze" href="superpotent">Super <span>P</span>otent</a>
                 <div class="big-circle2"></div>
                 <br>
-            <indent class="indent-big"><a id="ok-human" href="ok-human"><span>OK</span> Human</a></indent>
+            <indent class="indent-big"><a id="ok-human" href="yonder-peruse"><span>Yonder</span> Peruse</a></indent>
             <div class="big-circle3"></div>
             </h1>
         </div>
@@ -129,9 +78,10 @@ precision highp float;
             <div class="menu-footer">
                 <div class="h6-circle"></div>
                 <h6>
-                Fearful Harmony is an exploration of the relationship between designer and machine, speculating into the being of the latter as a means to delve into a different aesthetic and experience of our devices.
-                <br><br>© 2017 <a class="underline" href="http://alfredhoi.com/" target="_blank">Alfred Hoi</a> &amp; <a class="underline" href="http://lukehoban.co.nz/" target="_blank">Luke Hoban</a>, All Rights Reserved.</h6>
-            </div> 
+                    Dense Journal is a project exploring how humans can live in regenerative and climate net positive ways.</h6>
+                <h6>
+                <br>© 2021 <a class="underline" href="http://dense.earth/" target="_blank">Dense Earth</a> &amp; <a class="underline" href="http://ashercaplan.com/" target="_blank">Asher Caplan</a>, All Rights Reserved.</h6>
+          </div> 
             <div class="menu-close"><h6 id="menu-open" class="underline"><a></a>Close</h6></div>
         </div>        
             
