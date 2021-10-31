@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 body, html {
     background-color: #fff;
-    font-family: "Harmony", "Helvetica", "Arial", sans-serif;    
+    font-family: "Untitled", "Helvetica", "Arial", sans-serif;    
     overflow-y: visible;
     -webkit-transition: .6s ease;
     transition: .6s ease;
@@ -382,17 +382,15 @@ p span{
     }
 
 @font-face {
-    font-family: 'Harmony';
-    src: url('/assets/fonts/Harmony-Bold.woff'); 
-    src: url('/assets/fonts/Harmony-Bold.woff'); 
+    font-family: 'Untitled';
+    src: url('/assets/fonts/UntitledSerif-Bold.woff');  
     font-style: bold;
     font-weight: 700;
     } 
 
 @font-face {
-    font-family: 'Harmony';
-    src: url('/assets/fonts/Harmony-Thin.woff'); 
-    src: url('/assets/fonts/Harmony-Thin.woff'); 
+    font-family: 'Untitled';
+    src: url('/assets/fonts/UntitledSerif-Regular.woff');  
     font-style: normal;
     font-weight: 300;
     }
