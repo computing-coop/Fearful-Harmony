@@ -728,17 +728,15 @@ span.tip {
     position: fixed;
     top: 15px;
     z-index: 1;
-    opacity: 0 !important;
     visibility: hidden;
     transform: scale(.9) translate(0px, 20px);
-    box-shadow: 1px 1px 2px rgba(121, 121, 121, 0.25);
-    mix-blend-mode: multiply;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px; 
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgb(198, 224, 198);
     margin-left: -2px;
     margin-top: 0px;
-	background: #000;
     cursor: pointer;   
     -webkit-transition: .0s ease !important;
     transition: .0s ease !important; 
@@ -1822,7 +1820,8 @@ svg{
 
 
 .static-haze .top-header{
-    margin-left: 20px;    
+    margin-left: 20px;
+    word-spacing: -0.015em;    
 }
 
 .static-haze h3{
